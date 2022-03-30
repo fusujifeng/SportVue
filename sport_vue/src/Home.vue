@@ -2,7 +2,7 @@
   <el-container>
     <el-aside width="200px">
       <img src="./assets/img/avator.png" alt="">
-      <h3>健康数据分析d 平台</h3>
+      <h3>健康数据分析平台</h3>
       <el-button  type="danger" @click="loginOut">退出登录</el-button>
       <el-menu
         class="el-menu-vertical-demo"
