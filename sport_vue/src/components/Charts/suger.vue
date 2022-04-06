@@ -1,4 +1,5 @@
 <template>
+  <div>
   <el-card>
     <el-tabs type="border-card" v-model="activeName"  v-if="!dialogVisible">
       <el-tab-pane label="早餐数据填写" name="first">
@@ -71,6 +72,20 @@
     </el-tabs>
     <SugerView v-if="dialogVisible" :sugdata="sugdata" @back="dialogVisible=false"></SugerView>
   </el-card>
+  <div class="sugerknowledge">
+    <h1>Tips:</h1>
+    <h3>
+      正常血糖值的范围分为两大类，一般指的是空腹及餐后血糖，<br>
+      空腹血糖正常值为<span class="big">3.9～6.1mmol/L</span>之间，<br>
+      餐后1小时血糖正常值为<span class="big">6.7-9.4mmol/L</span>之间，<br>
+      餐后2小时血糖正常值应小于<span class="big">7.8mmol/L</span>。<br>
+    </h3>
+    <div class="picture">
+
+      <img width="475"  src="../../assets/img/sugar.jpg">
+    </div>
+  </div>
+  </div>
 </template>
 
 <script>
@@ -118,4 +133,17 @@ export default {
 .el-input{
   width: 300px;
 }
+
+.sugerknowledge{
+  width: 500px;
+  height: 300px;
+  background-color:#FAEAD3;
+  position: fixed;
+}
+
+.picture{
+ margin-left: 500px;
+  margin-bottom: 1000px;
+}
+
 </style>

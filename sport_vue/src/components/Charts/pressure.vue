@@ -1,4 +1,5 @@
 <template>
+  <div>
   <el-card>
     <el-tabs type="border-card" v-model="activeName" v-if="!dialogVisible">
       <el-tab-pane label="上午数据填写" name="first">
@@ -71,6 +72,19 @@
     </el-tabs>
     <PresureView :presuredata="presuredata" @back="dialogVisible=false" v-if="dialogVisible"></PresureView>
   </el-card>
+  <div class="pressureknowledge">
+    <h1>Tips:</h1>
+    <h3>
+      <span class="big">血压的正常范围</span>是收缩压在90-140mmHg，舒张压在60-90mmHg。<br>
+      <span class="big">高血压</span>:如果收缩压≥140mmHg，舒张压≥90mmHg<br>
+      <span class="big">低血压</span>:如果收缩压<90mmHg或者舒张压<60mmHg<br>
+    </h3>
+  </div>
+    <div class="picture">
+
+      <img src="../../assets/img/pressure.jpg" width="450px">
+    </div>
+  </div>
 </template>
 
 <script>
@@ -117,5 +131,17 @@ export default {
 }
 .el-input{
   width: 300px;
+}
+.pressureknowledge{
+  width: 500px;
+  height: 300px;
+  background-color: #FAEAD3;
+  position: fixed;
+}
+.big{
+  color: green;
+}
+.picture{
+  margin-left: 500px;
 }
 </style>

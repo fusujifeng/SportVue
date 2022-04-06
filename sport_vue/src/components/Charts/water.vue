@@ -1,4 +1,5 @@
 <template>
+<div>
   <el-card>
     <el-tabs type="border-card" v-model="activeName" v-if="!dialogVisible">
       <el-tab-pane label="上午数据填写" name="first">
@@ -65,6 +66,21 @@
     </el-tabs>
     <WaterView v-if="dialogVisible" @back="dialogVisible=false" :waterdata="waterdata"></WaterView>
   </el-card>
+<div class="Waterknowledge">
+        <h1>Tips:</h1>
+        <h3>
+          根据《中国居民膳食指南》中的建议，我国居民每天饮水量建议为<span class="big">1200</span>mL。
+          <br>
+          <br>
+          在温和气候条件下生活的从事轻度身体活动的成年人每天需要喝水<span class="big">1500-1700</span>毫升。
+          未成年根据年龄的不同适量减少。
+        </h3>
+      </div>
+  <div class="picture">
+
+    <img src="../../assets/img/water.jpg" width="500px">
+  </div>
+</div>
 </template>
 
 <script>
@@ -111,5 +127,19 @@ export default {
 }
 .el-input{
   width: 300px;
+}
+
+.Waterknowledge{
+  width: 500px;
+  height: 300px;
+  background-color: #FAEAD3;
+  position: fixed;
+}
+.big{
+color: green;
+}
+
+.picture{
+  margin-left: 500px;
 }
 </style>

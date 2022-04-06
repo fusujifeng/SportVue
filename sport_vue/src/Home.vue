@@ -105,7 +105,7 @@ export default {
   box-sizing: border-box;
 }
 .home > div:nth-child(1){
-  right: 100px;
+  right: 100px;  
   transform: rotateZ(-20deg);
 }
 .home > div:nth-child(2){

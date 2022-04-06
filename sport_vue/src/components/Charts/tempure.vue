@@ -1,4 +1,5 @@
 <template>
+  <div>
   <el-card>
     <el-tabs type="border-card" v-model="activeName" v-if="!dialogVisible">
       <el-tab-pane label="上午数据填写" name="first">
@@ -155,6 +156,20 @@
     </el-tabs>
   <TemView v-if="dialogVisible" :temdata="temdata"  @back="dialogVisible=false"></TemView>
   </el-card>
+  <div class="tempureKnowledge">
+    <h1>Tips:</h1>
+    不超过<span class="big">37.3℃</span>，属于正常体温。<br>
+    体温<span class="big">37.3-38℃</span>之间时属于低热，<br>
+    <span class="big">38-39℃</span>之间属于中度发热，<br>
+    <span class="big">39-41℃</span>之间属于高热，<br>
+    体温<span class="big">超过41℃</span>属于超高热。<br>
+    当患者出现发热时，应该积极就医，完善相关检查
+  </div>
+    <div class="picture">
+
+      <img src="../../assets/img/tempture.jpg">
+    </div>
+  </div>
 </template>
 
 <script>
@@ -201,5 +216,18 @@ export default {
 }
 .el-input {
   width: 300px;
+}
+
+.tempureKnowledge{
+  width: 500px;
+  height: 300px;
+  background-color: #FAEAD3;
+  position: fixed;
+}
+.big{
+  color: green;
+}
+.picture{
+  margin-left: 500px;
 }
 </style>

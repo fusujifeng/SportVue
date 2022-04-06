@@ -1,4 +1,5 @@
 <template>
+<div>
   <el-card class="temmain">
     <el-card id="main"></el-card>
     <el-card class="msg">
@@ -12,6 +13,9 @@
       <el-button type="primary" @click="$emit('back')">返回</el-button>
     </el-card>
   </el-card>
+
+  
+  </div>
 </template>
 
 <script>

@@ -1,5 +1,6 @@
 const express = require("express")
 const mongoose = require('mongoose')
+
 const bodyParser = require('body-parser')
 const passport = require('passport')
 const  user = require('./router/user')
@@ -10,8 +11,12 @@ const app = express();
 mongoose.connect('mongodb://localhost/sport_server')
     .then(() => console.log('数据库连接成功'))
     .catch(err => console.log(err, '连接失败'))
+
+    //bodyParser:接受post参数
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
+
+
 app.use(passport.initialize())
 app.use('/server/user',user)
 app.use('/server/chart',chart)
