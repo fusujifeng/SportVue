@@ -5,19 +5,21 @@
       <el-tab-pane label="上午数据填写" name="first">
         <el-row>
           <el-alert title="请填写8：00~10：00之间的数据，请保证数据准确！" type="warning" effect="dark" closable="false">
-          </el-alert
-        ></el-row>
+          </el-alert>
+        </el-row>
           <el-form ref="form">
         <el-form-item label="上午大压">
           <el-input v-model="presure[0]">;</el-input>
-          <span v-show="presure[0]>160&&presure[0]<200" style="color:#f40;padding-left:10px;">血压过高，请及时服用药物或者就诊治疗！</span>
-          <span v-show="presure[0]>200" style="color:#f40;padding-left:10px;">非正常数据！重新填写!</span>
+          <span v-show="presure[0]>=200" style="color:#f40;padding-left:10px;">非正常数据！重新填写!</span>
+          <span v-show="presure[0]>=140&&presure[0]<200" style="color:#f40;padding-left:10px;">血压过高，请及时服用药物或者就诊治疗！</span>
+          <span v-show="presure[0]>=60&&presure[0]<140" style="color:#00E500;padding-left:10px;">血压正常！</span>
           <span v-show="presure[0]<60" style="color:#f40;padding-left:10px;">血压过低，若为真实数据，请尽快就医。</span>
         </el-form-item>
         <el-form-item label="上午小压">
           <el-input v-model="presure[1]"></el-input>
-          <span v-show="presure[1]>160&&presure[1]<200" style="color:#f40;padding-left:10px;">血压过高，请及时服用药物或者就诊治疗！</span>
-          <span v-show="presure[1]>200" style="color:#f40;padding-left:10px;">非正常数据！重新填写!</span>
+          <span v-show="presure[1]>140&&presure[1]<200" style="color:#f40;padding-left:10px;">血压过高，请及时服用药物或者就诊治疗！</span>
+          <span v-show="presure[1]>=200" style="color:#f40;padding-left:10px;">非正常数据！重新填写!</span>
+          <span v-show="presure[0]>=60&&presure[0]<140" style="color:#00E500;padding-left:10px;">血压正常！</span>
           <span v-show="presure[1]<60" style="color:#f40;padding-left:10px;">血压过低，若为真实数据，请尽快就医。!</span>
         </el-form-item>
       </el-form>
@@ -31,14 +33,17 @@
         <el-form>
          <el-form-item label="中午大压">
           <el-input v-model="presure[2]"></el-input>
-          <span v-show="presure[2]>160&&presure[2]<200" style="color:#f40;padding-left:10px;">血压过高，请及时服用药物或者就诊治疗！</span>
+          <span v-show="presure[2]>=140&&presure[2]<200" style="color:#f40;padding-left:10px;">血压过高，请及时服用药物或者就诊治疗！</span>
           <span v-show="presure[2]>200" style="color:#f40;padding-left:10px;">非正常数据！重新填写!</span>
-          <span v-show="presure[2]<60" style="color:#f40;padding-left:10px;">血压过低，若为真实数据，请尽快就医。!</span>
+           <span v-show="presure[0]>=60&&presure[0]<140" style="color:#00E500;padding-left:10px;">血压正常！</span>
+           <span v-show="presure[2]<60" style="color:#f40;padding-left:10px;">血压过低，若为真实数据，请尽快就医。!</span>
         </el-form-item>
         <el-form-item label="中午小压">
           <el-input v-model="presure[3]"></el-input>
-          <span v-show="presure[3]>160&&presure[3]<200" style="color:#f40;padding-left:10px;">血压过高，请及时服用药物或者就诊治疗！</span>
+          <span v-show="presure[3]>=140&&presure[3]<200" style="color:#f40;padding-left:10px;">血压过高，请及时服用药物或者就诊治疗！</span>
           <span v-show="presure[3]>200" style="color:#f40;padding-left:10px;">非正常数据！重新填写!</span>
+          <span v-show="presure[0]>=60&&presure[0]<140" style="color:#00E500;padding-left:10px;">血压正常！</span>
+
           <span v-show="presure[3]<60" style="color:#f40;padding-left:10px;">血压过低，若为真实数据，请尽快就医。!</span>
         </el-form-item>
         </el-form>
@@ -52,14 +57,18 @@
         <el-form>
         <el-form-item label="晚上大压">
           <el-input v-model="presure[4]"></el-input>
-          <span v-show="presure[4]>160&&presure[4]<200" style="color:#f40;padding-left:10px;">血压过高，请及时服用药物或者就诊治疗！</span>
+          <span v-show="presure[4]>=140&&presure[4]<200" style="color:#f40;padding-left:10px;">血压过高，请及时服用药物或者就诊治疗！</span>
           <span v-show="presure[4]>200" style="color:#f40;padding-left:10px;">非正常数据！重新填写!</span>
+          <span v-show="presure[0]>=60&&presure[0]<140" style="color:#00E500;padding-left:10px;">血压正常！</span>
+
           <span v-show="presure[4]<60" style="color:#f40;padding-left:10px;">血压过低，若为真实数据，请尽快就医。!</span>
         </el-form-item>
         <el-form-item label="晚上小压">
           <el-input v-model="presure[5]"></el-input>
-          <span v-show="presure[5]>160&&presure[5]<200" style="color:#f40;padding-left:10px;">体温过高，若非剧烈运动，请及时就医！</span>
+          <span v-show="presure[5]>=140&&presure[5]<200" style="color:#f40;padding-left:10px;">体温过高，若非剧烈运动，请及时就医！</span>
           <span v-show="presure[5]>200" style="color:#f40;padding-left:10px;">非正常数据！重新填写!</span>
+          <span v-show="presure[0]>=60&&presure[0]<140" style="color:#00E500;padding-left:10px;">血压正常！</span>
+
           <span v-show="presure[5]<60" style="color:#f40;padding-left:10px;">血压过低，若为真实数据，请尽快就医。!</span>
         </el-form-item>
         <el-form-item>
@@ -69,6 +78,12 @@
         </el-form-item>
         </el-form>
       </el-tab-pane>
+    </el-tabs>
+    <el-tabs type="border-card">
+      <el-tab-pane label="低血压">小于60</el-tab-pane>
+      <el-tab-pane label="血压正常">60-140</el-tab-pane>
+      <el-tab-pane label="高血压">大于140</el-tab-pane>
+      <el-tab-pane label="数据异常">大于200</el-tab-pane>
     </el-tabs>
     <PresureView :presuredata="presuredata" @back="dialogVisible=false" v-if="dialogVisible"></PresureView>
   </el-card>

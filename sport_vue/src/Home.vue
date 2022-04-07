@@ -20,10 +20,10 @@
     </el-aside>
     <el-main>
       <div class="home" v-if="dialog">
-        <el-card><img src="https://img1.baidu.com/it/u=407561552,1082674379&fm=253&fmt=auto&app=138&f=JPEG?w=1000&h=500" alt=""></el-card>
-        <el-card><img src="https://img1.baidu.com/it/u=249464328,775505640&fm=253&fmt=auto&app=138&f=JPEG?w=700&h=462" alt=""></el-card>
-        <el-card><img src="https://img1.baidu.com/it/u=3758159792,2748136421&fm=253&fmt=auto&app=120&f=JPEG?w=1280&h=800" alt=""></el-card>
-        <el-card><img src="https://img2.baidu.com/it/u=460942263,611077009&fm=253&fmt=auto&app=120&f=JPEG?w=776&h=536" alt=""></el-card>
+        <el-card><img src="../src/assets/img/home1.png" alt=""></el-card>
+        <el-card><img src="../src/assets/img/home2.png" alt=""></el-card>
+        <el-card><img src="../src/assets/img/home3.png" alt=""></el-card>
+        <el-card><img src="../src/assets/img/home4.png" alt=""></el-card>
       </div>
       <router-view></router-view>
     </el-main>
@@ -37,9 +37,6 @@ export default {
       menu: JSON.parse(window.sessionStorage.getItem('menu')),
       dialog: true
     }
-  },
-  created () {
-    // console.log(window.sessionStorage.getItem('menu'))
   },
   methods: {
     push (path) {
@@ -105,7 +102,7 @@ export default {
   box-sizing: border-box;
 }
 .home > div:nth-child(1){
-  right: 100px;  
+  right: 100px;
   transform: rotateZ(-20deg);
 }
 .home > div:nth-child(2){

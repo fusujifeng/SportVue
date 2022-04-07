@@ -1,7 +1,7 @@
 <template>
   <div class="register">
     <el-card>
-         <h3>请认真填写信息哦</h3>
+         <h3>填写注册信息</h3>
       <el-form ref="registrerRef" :model="registrerForm" label-width="80px">
         <el-form-item label="姓名">
           <el-input v-model="registrerForm.name"></el-input>

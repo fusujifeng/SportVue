@@ -3,7 +3,7 @@
       <div class="login_box">
     <el-card>
         <div>
-        <img src="./assets/img/avator.png" alt="">
+        <img src="./assets/img/sunshine.jpg" alt="">
         </div>
         <h3>健康数据分析平台</h3>
       <el-form :model="loginForm" :rules="rules" ref="ruleForm">
@@ -17,13 +17,13 @@
         </el-form-item>
         <el-form-item>
           <el-radio-group v-model="loginForm.type">
-            <el-radio label="用户"></el-radio>
-            <el-radio label="管理员"></el-radio>
+            <el-radio label="学生端"></el-radio>
+            <el-radio label="教师端"></el-radio>
           </el-radio-group>
         </el-form-item>
         <el-form-item>
           <el-button type="primary" @click="loginConfirm">登录</el-button>
-          <el-button type="danger" @click="goRegister">没有账号？ >  立即注册</el-button>
+          <el-button type="danger" @click="goRegister">注册</el-button>
         </el-form-item>
       </el-form>
     </el-card>
@@ -36,8 +36,8 @@ export default {
   data () {
     return {
       loginForm: {
-        username: 'admin1',
-        password: '123456',
+        username: '',
+        password: '',
         type: '用户'
       },
       rules: {}
@@ -62,7 +62,7 @@ export default {
 }
 </script>
 
-<style coped>
+<style cope\>
 .main {
   width: 100%;
   height: 100%;
@@ -84,7 +84,7 @@ export default {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  opacity: .9;
+  opacity: 0.9;
   position: relative;
 }
 .main .el-card h3{
@@ -119,4 +119,9 @@ export default {
   width: 200px;
   border-radius: 15px;
 }
+.main{
+  background: url(./assets/img/bacground-sport.jpg) no-repeat center;
+  background-size: 100%;
+}
+
 </style>>
