@@ -177,6 +177,7 @@ export default {
   margin: 20px auto;
   position: relative;
   overflow-y: scroll;
+  margin-left: 200px;
 }
 .msg .el-button {
   position: absolute;

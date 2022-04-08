@@ -6,15 +6,14 @@
       <el-descriptions title="数据分析" column = 1>
         <el-descriptions-item label="体温数据">
             <el-tag  v-for="(item,i) in temdata.tempure" :key="i">{{item}}℃</el-tag>
-        </el-descriptions-item>
+        </el-descriptions-item >
+        <br>
         <el-descriptions-item label="体温数据分析" v-for="(item,i) in msg.tem" :key="i">{{item}}</el-descriptions-item>
         <el-descriptions-item label="分析结果">{{msg.temmsg}}</el-descriptions-item>
       </el-descriptions>
       <el-button type="primary" @click="$emit('back')">返回</el-button>
     </el-card>
   </el-card>
-
-  
   </div>
 </template>
 
@@ -42,7 +41,11 @@ export default {
         type: 'category',
         data: ['8:00', '11:00', '12:00', '14:00', '18:00', '20:00']
       },
+      // y轴的最小值,y轴最大值,值之间的间隔
       yAxis: {
+        min: 36,
+        max: 40,
+        interval: 1,
         type: 'value',
         axisLabel: {
           formatter: '{value} ℃'
@@ -52,7 +55,11 @@ export default {
         {
           data: this.temdata.tempure,
           type: 'bar',
-          smooth: true
+          smooth: true,
+          showBackground: true,
+          backgroundStyle: {
+            color: 'rgba(180, 180, 180, 0.2)'
+          }
         }
       ]
     }
@@ -104,10 +111,12 @@ export default {
   border-radius: 15px;
   margin: 20px auto;
   position: relative;
+  margin-left: 200px;
 }
 .msg .el-button {
   position: absolute;
   bottom: 10px;
   right: 20px;
 }
+
 </style>

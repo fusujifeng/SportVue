@@ -198,8 +198,8 @@ router.post("/login", (req, res) => {
                           name: "运动数据查询",
                           path: "/Ssport",
                         },
-                        ]  
-                      }    
+                        ]
+                      }
                   ],
                 });
               }
@@ -279,84 +279,8 @@ router.get("/mymsg/:id", (req, res) => {
       });
     });
 });
-// router.post(
-//   "/edit/:id",
-//   passport.authenticate("jwt", {
-//     session: false,
-//   }),
-//   (req, res) => {
-//     if (req.body.nickname == "" && req.body.avator == "") {
-//       return res.json({
-//         status: 500,
-//         msg: "error",
-//       });
-//     }
-//     const newInfo = {};
-//     newInfo.nickname = req.body.nickname;
-//     newInfo.avator = req.body.avator;
-//     if (newInfo.nickname !== "" && newInfo.avator !== "") {
-//       User.findOneAndUpdate(
-//         {
-//           _id: req.params.id,
-//         },
-//         {
-//           $set: {
-//             nickname: newInfo.nickname,
-//             avator: newInfo.avator,
-//           },
-//         },
-//         {
-//           new: true,
-//         }
-//       ).then(() =>
-//         res.json({
-//           status: 200,
-//           msg: "success",
-//         })
-//       );
-//     }
-//     if (newInfo.avator !== "" && newInfo.nickname == "") {
-//       User.findOneAndUpdate(
-//         {
-//           _id: req.params.id,
-//         },
-//         {
-//           $set: {
-//             avator: newInfo.avator,
-//           },
-//         },
-//         {
-//           new: true,
-//         }
-//       ).then(() =>
-//         res.json({
-//           status: 200,
-//           msg: "success",
-//         })
-//       );
-//     }
-//     if (newInfo.nickname !== "" && newInfo.avator == "") {
-//       User.findOneAndUpdate(
-//         {
-//           _id: req.params.id,
-//         },
-//         {
-//           $set: {
-//             nickname: newInfo.nickname,
-//           },
-//         },
-//         {
-//           new: true,
-//         }
-//       ).then(() =>
-//         res.json({
-//           status: 200,
-//           msg: "success",
-//         })
-//       );
-//     }
-//   }
-// );
+
+
 router.get(
   "/allUser/:id",
   passport.authenticate("jwt", {
@@ -371,7 +295,7 @@ router.get(
         if (user.type !== "管理员")
           return res.json({
             status: 400,
-            msg: "么有权限",
+            msg: "没有权限",
           });
         User.find()
           .then((all) => {

@@ -3,7 +3,7 @@
     <el-card id="main"></el-card>
     <el-card class="msg">
       <el-descriptions title="数据分析" column = 1>
-        <el-descriptions-item label="体温数据">
+        <el-descriptions-item label="血压数据">
           <el-tag v-for="(item, i) in presuredata.presure" :key="i"
             >{{ item }}mmHg</el-tag
           >
@@ -119,6 +119,7 @@ export default {
   border-radius: 15px;
   margin: 20px auto;
   position: relative;
+  margin-left: 200px;
 }
 .msg .el-button {
   position: absolute;
