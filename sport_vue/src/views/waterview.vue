@@ -88,6 +88,9 @@ export default {
       },
       yAxis: {
         type: 'value',
+        min: 200,
+        max: 500,
+        interval: 60,
         axisLabel: {
           formatter: '{value} ml'
         },

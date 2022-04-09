@@ -1,3 +1,5 @@
+<!--页面：/#/searchmyinfo-->
+
 <template>
   <div>
       <infoTabel :infolist="infolist" @getNew="getallinfo()"></infoTabel>

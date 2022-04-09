@@ -1,3 +1,5 @@
+<!--/#/searchmyinfo-->
+
 <template>
   <div class="wrapp_box">
     <div class="show">
@@ -65,6 +67,9 @@ export default {
         },
         yAxis: {
           type: 'value',
+          min: 36,
+          max: 40,
+          interval: 1,
           axisLabel: {
             formatter: '{value} ℃'
           }
@@ -94,6 +99,9 @@ export default {
         },
         yAxis: {
           type: 'value',
+          min: 2,
+          max: 10,
+          interval: 5,
           axisLabel: {
             formatter: '{value} mmol/L'
           }
@@ -296,6 +304,7 @@ export default {
   height: 100%;
   margin-right: 40px;
   position: relative;
+  margin-left: 50px;
 }
 .msg .el-card{
     width: 100%;

@@ -17,8 +17,8 @@
         </el-form-item>
         <el-form-item>
           <el-radio-group v-model="loginForm.type">
-            <el-radio label="学生端"></el-radio>
-            <el-radio label="教师端"></el-radio>
+            <el-radio label="用户"></el-radio>
+            <el-radio label="管理员"></el-radio>
           </el-radio-group>
         </el-form-item>
         <el-form-item>

@@ -60,6 +60,9 @@ export default {
       },
       yAxis: {
         type: 'value',
+        min: 0,
+        max: 10,
+        interval: 2,
         axisLabel: {
           formatter: '{value} mmol/L'
         }

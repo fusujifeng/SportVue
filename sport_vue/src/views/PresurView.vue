@@ -77,6 +77,9 @@ export default {
         ]
       },
       yAxis: {
+        min: 30,
+        max: 180,
+        interval: 30,
         type: 'value',
         axisLabel: {
           formatter: '{value} mmHg'

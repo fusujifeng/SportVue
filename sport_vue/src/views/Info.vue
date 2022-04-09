@@ -1,3 +1,5 @@
+<!--/#/searchmyinfo-->
+
 <template>
   <el-card>
     <el-table :data="infolist" style="width: 100%" border  v-if="!dialog">
