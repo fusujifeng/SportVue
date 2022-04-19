@@ -7,15 +7,19 @@
       <el-menu
         class="el-menu-vertical-demo"
       >
+<!--下面是侧边栏-->
         <el-submenu  v-for="item in menu" :key="item.id" :index="item.id">
           <template slot="title">
             <i class="el-icon-location"></i>
             <span>{{item.name}}</span>
           </template>
+
+<!--          子菜单-->
           <el-menu-item-group>
             <el-menu-item  v-for="i in item.children" :key="i.id" :index="i.id" @click="push(i.path)">{{i.name}}</el-menu-item>
           </el-menu-item-group>
         </el-submenu>
+
       </el-menu>
     </el-aside>
     <el-main>

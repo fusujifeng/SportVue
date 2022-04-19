@@ -8,7 +8,7 @@ const  chart = require('./router/chart')
 const mydata = require('./router/mydata')
 const sport = require('./router/sport')
 const app = express();
-mongoose.connect('mongodb://localhost/sport_server')
+mongoose.connect('mongodb://chenhang:zxcvbnm777@cluster0-shard-00-00.nb3yl.mongodb.net:27017,cluster0-shard-00-01.nb3yl.mongodb.net:27017,cluster0-shard-00-02.nb3yl.mongodb.net:27017/sport?ssl=true&replicaSet=atlas-e0belj-shard-0&authSource=admin&retryWrites=true&w=majority')
     .then(() => console.log('数据库连接成功'))
     .catch(err => console.log(err, '连接失败'))
 
