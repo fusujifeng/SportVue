@@ -185,6 +185,7 @@ export default {
       id: window.sessionStorage.getItem('id'),
       temdata: [],
       tag: 0,
+      // 体温数据表
       dialogVisible: false
     }
   },
@@ -195,12 +196,8 @@ export default {
           '请勿重复提交表单，如需填写新的数据，请刷新此页面。'
         )
       }
-      const { data: res } = await this.$http.post(
-        '/server/mydata/addtempure/' + this.id,
-        this.temperature
-      )
+      const { data: res } = await this.$http.post('/server/mydata/addtempure/' + this.id, this.temperature)
       if (res.status !== 200) return this.$message.error('信息提交失败')
-      console.log(res)
       this.tag = 1
       this.temdata = res.data
       this.dialogVisible = true
