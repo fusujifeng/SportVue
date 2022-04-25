@@ -80,6 +80,17 @@ router.post("/login", (req, res) => {
                         },
                       ],
                     },
+                    {
+                      id: "4",
+                      name: "系统日志",
+                      children: [
+                        {
+                          id: "4-1",
+                          name: "修改记录",
+                          path: "/journal",
+                        },
+                      ],
+                    },
                   ],
                 });
               }

@@ -25,6 +25,7 @@ const UserSchema = new Schema({
         type:Number,
         required:true
     },
+    //账号类型
     type:{
         type:String,
         required:true
@@ -33,6 +34,6 @@ const UserSchema = new Schema({
         type:Date,
         default:Date.now()
     }
-  
+
 })
 module.exports = user = mongoose.model('user',UserSchema)

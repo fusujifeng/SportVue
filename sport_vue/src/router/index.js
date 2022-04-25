@@ -19,6 +19,8 @@ import Sugersearch from '../components/Charts/Sugersearch.vue'
 import Watesearch from '../components/Charts/Watersearch.vue'
 import Sprtsearch from '../components/Charts/Sportsearch.vue'
 import Edit from '../components/User/Edit.vue'
+// 添加日志功能
+import journal from "@/components/UserInfo/Journal";
 
 Vue.use(VueRouter)
 
@@ -44,7 +46,8 @@ const router = new VueRouter({
         { path: '/Spressure', component: Presuresearch },
         { path: '/Swater', component: Watesearch },
         { path: '/Ssport', component: Sprtsearch },
-        { path: '/editmymsg', component: Edit }
+        { path: '/editmymsg', component: Edit },
+        { path: '/journal', component: journal }
       ]
     }
   ]

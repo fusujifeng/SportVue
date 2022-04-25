@@ -1,38 +1,41 @@
 <!--/#/searchmyinfo-->
 
 <template>
-  <el-card>
-    <el-table :data="infolist" style="width: 100%" border  v-if="!dialog">
-        <el-table-column prop="date" label="日期" > </el-table-column>
-      <el-table-column label="体温" >
-          <template slot-scope="scope">
-              <el-tag v-for="(item,i) in scope.row.temperature" :key="i" type="danger" size="mini">{{item +'度'}}</el-tag>
-          </template>
-      </el-table-column>
-       <el-table-column label="血糖" >
-           <template slot-scope="scope">
-              <el-tag v-for="(item,i)  in scope.row.bloodSuger" :key="i" type="warning"  size="mini">{{item + 'mmol/L'}}</el-tag>
-          </template>
-       </el-table-column>
-        <el-table-column label="血压" >
+  <div>
+    <el-card>
+      <el-table :data="infolist" style="width: 100%" border  v-if="!dialog">
+          <el-table-column prop="date" label="日期" > </el-table-column>
+        <el-table-column label="体温" >
             <template slot-scope="scope">
-              <el-tag v-for="(item,i)  in scope.row.bloodPressure" :key="i" type="info" size="mini">{{item + 'mmHg'}}</el-tag>
-          </template>
+                <el-tag v-for="(item,i) in scope.row.temperature" :key="i" type="danger" size="mini">{{item +'度'}}</el-tag>
+            </template>
         </el-table-column>
-         <el-table-column  label="饮水量" >
+         <el-table-column label="血糖" >
              <template slot-scope="scope">
-              <el-tag v-for="(item,i)  in scope.row.water" :key="i" type="success" size="mini">{{item + 'ml'}}</el-tag>
-          </template>
+                <el-tag v-for="(item,i)  in scope.row.bloodSuger" :key="i" type="warning"  size="mini">{{item + 'mmol/L'}}</el-tag>
+            </template>
          </el-table-column>
-          <el-table-column label="操作" width="180px">
+          <el-table-column label="血压" >
               <template slot-scope="scope">
-                  <el-button type="primary" size="mini" @click="showchar(scope.row._id)">查看</el-button>
-                  <el-button type="danger" size="mini" @click="deleteConfirm(scope.row._id)">删除</el-button>
-              </template>
+                <el-tag v-for="(item,i)  in scope.row.bloodPressure" :key="i" type="info" size="mini">{{item + 'mmHg'}}</el-tag>
+            </template>
           </el-table-column>
-    </el-table>
-    <Show v-if="dialog" :allDate="allDate" @return="dialog = false"></Show>
-  </el-card>
+           <el-table-column  label="饮水量" >
+               <template slot-scope="scope">
+                <el-tag v-for="(item,i)  in scope.row.water" :key="i" type="success" size="mini">{{item + 'ml'}}</el-tag>
+            </template>
+           </el-table-column>
+            <el-table-column label="操作" width="180px">
+                <template slot-scope="scope">
+                    <el-button type="primary" size="mini" @click="showchar(scope.row._id)">查看</el-button>
+                    <el-button type="danger" size="mini" @click="deleteConfirm(scope.row._id)">删除</el-button>
+                </template>
+            </el-table-column>
+      </el-table>
+      <Show v-if="dialog" :allDate="allDate" @return="dialog = false"></Show>
+    </el-card>
+    <button @click="handleClick">click</button>
+  </div>
 </template>
 
 <script>
@@ -47,7 +50,8 @@ export default {
   },
   data () {
     return {
-      dialog: false
+      dialog: false,
+      message: '徐佳兴'
     }
   },
   methods: {
@@ -76,7 +80,14 @@ export default {
           message: '删除成功!'
         })
         this.$emit('getNew')
+        // 删除日志
+        this.$emit('deletelog', this.message)
       })
+    },
+    handleClick(){
+      this.$bus.$emit("deletelog",this.message )
+      console.log(this.message)
+
     }
   }
 }
