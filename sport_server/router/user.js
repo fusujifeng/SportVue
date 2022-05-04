@@ -7,7 +7,7 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const passport = require("passport");
 const keys = require("../config/keys");
-
+const mongoose = require('mongoose')
 //
 router.post("/login", (req, res) => {
   const username = req.body.username;
@@ -360,6 +360,48 @@ router.delete("/delete/:id", (req, res) => {
     });
   });
 });
+
+//随机生成数据
+router.post('/create', (req, res) => {
+  const user = {}
+  user.username = 'user' + parseInt(Math.random() * (100 - 1))
+  user.password = '123456'
+  user.type = '用户'
+  user.name = '模拟生成数据'
+  user.age = 12
+  user.sex = '男'
+  user.phone = 12345678
+  function myrandom(length,  min,max) {
+    const arr = []
+    for (let i = 0; i < length; i++) {
+      let data = parseInt(Math.random() * (max - min + 1) + min)
+      arr.push(data)
+    }
+    return arr
+  }
+  User.findOne({ username: user.username }).then(us => {
+    const newUser = new User(user)
+    bcrypt.genSalt(10, function (err, salt) {
+      bcrypt.hash(newUser.password, salt, (err, hash) => {
+        if (err) throw err;
+        newUser.password = hash;
+        newUser.save().then((users) => {
+          id = mongoose.Types.ObjectId(users._id).toString()
+          const newdata = {}
+          newdata.temperature = myrandom(5, 36, 38)
+          newdata.bloodSuger = myrandom(6, 3, 10)
+          newdata.bloodPressure = myrandom(3, 80, 140)
+          newdata.water = myrandom(5, 200, 600)
+          newdata.id = id
+          new Chart(newdata).save().then((success) => {
+            return res.json({ status: 200, data: success, user: users })
+          })
+        })
+          .catch((err) => console.log(err));
+      })
+    })
+  })
+})
 
 module.exports = router;
 

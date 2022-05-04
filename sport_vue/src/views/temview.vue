@@ -43,7 +43,7 @@ export default {
       },
       // y轴的最小值,y轴最大值,值之间的间隔
       yAxis: {
-        min: 36,
+        min: 35,
         max: 40,
         interval: 1,
         type: 'value',

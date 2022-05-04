@@ -67,7 +67,7 @@ export default {
         },
         yAxis: {
           type: 'value',
-          min: 36,
+          min: 35,
           max: 40,
           interval: 1,
           axisLabel: {
@@ -99,9 +99,9 @@ export default {
         },
         yAxis: {
           type: 'value',
-          min: 2,
+          min: 0,
           max: 10,
-          interval: 5,
+          interval: 2,
           axisLabel: {
             formatter: '{value} mmol/L'
           }
@@ -149,6 +149,9 @@ export default {
         },
         yAxis: {
           type: 'value',
+          min: 0,
+          max: 600,
+          interval: 500,
           axisLabel: {
             formatter: '{value} ml'
           },
