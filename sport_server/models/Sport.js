@@ -22,6 +22,7 @@ const SportSchema = new Schema({
         type:String,
         required:true
     },
+    //慢走时间
     footDate:{
         type:Number,
         default:0
@@ -34,15 +35,15 @@ const SportSchema = new Schema({
         type:Number,
         default:0
     },
-    foothurt:{
+    footRhythm:{
         type:Number,
         default:70
     },
-    runhurt:{
+    runRhythm:{
         type:Number,
         default:180
     },
-    swimhurt:{
+    swimRhythm:{
         type:Number,
         default:120
     }

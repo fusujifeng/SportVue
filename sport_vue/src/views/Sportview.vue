@@ -45,16 +45,16 @@
           ></el-progress
         ></el-descriptions-item>
         <el-descriptions-item label="游泳计划时长"
-          >{{ mswimDate }}h</el-descriptions-item
+          >{{ mswimRhythmDate }}h</el-descriptions-item
         >
         <el-descriptions-item label="实际游泳时长"
-          ><el-tag>{{ sportDate.swimDate }}h</el-tag></el-descriptions-item
+          ><el-tag>{{ sportDate.swimRhythmDate }}h</el-tag></el-descriptions-item
         >
         <el-descriptions-item label="完成进度"
           ><el-progress
             type="circle"
             :percentage="
-              parseFloat((sportDate.swimDate / mswimDate).toFixed(2)) * 100
+              parseFloat((sportDate.swimRhythmDate / mswimRhythmDate).toFixed(2)) * 100
             "
           ></el-progress
         ></el-descriptions-item>
@@ -68,7 +68,7 @@
         <el-descriptions-item label="BMI分析结果">{{msg.bmimsg}}</el-descriptions-item>
         <el-descriptions-item label="慢走分析结果">{{msg.footmsg}}</el-descriptions-item>
         <el-descriptions-item label="慢跑分析结果">{{msg.runmsg}}</el-descriptions-item>
-        <el-descriptions-item label="游泳分析结果">{{msg.swimmsg}}</el-descriptions-item>
+        <el-descriptions-item label="游泳分析结果">{{msg.swimRhythmmsg}}</el-descriptions-item>
         <el-descriptions-item label="总消耗卡路里（平均）">{{msg.kal}}卡路里</el-descriptions-item>
       </el-descriptions>
     </el-card>
@@ -84,8 +84,9 @@ export default {
     return {
       mfootDate: window.sessionStorage.getItem('mfootDate'),
       mrunDate: window.sessionStorage.getItem('mrunDate'),
-      mswimDate: window.sessionStorage.getItem('mswimDate'),
+      mswimRhythmDate: window.sessionStorage.getItem('mswimRhythmDate'),
       msg: {},
+      //显示/隐藏分析结果
       dialog: false
     }
   },
@@ -107,33 +108,33 @@ export default {
       msg.bmimsg =
         'BMI过高！您身体处于超胖的状态，请控制饮食，加强锻炼！及时减重！'
     }
-    if (this.sportDate.foothurt > 60 && this.sportDate.foothurt < 120) {
+    if (this.sportDate.footRhythm > 60 && this.sportDate.footRhythm < 120) {
       msg.footmsg = '您的慢走心率正常，多走走有助于身体健康哦！'
     }
-    if (!(this.sportDate.foothurt > 60 && this.sportDate.foothurt < 120)) {
+    if (!(this.sportDate.footRhythm > 60 && this.sportDate.footRhythm < 120)) {
       msg.footmsg = '您的慢走心率异常！若非特别情况，请及时去医院就诊！'
     }
-    if (this.sportDate.runhurt > 120 && this.sportDate.runhurt < 150) {
+    if (this.sportDate.runRhythm > 120 && this.sportDate.runRhythm < 150) {
       msg.runmsg = '您的慢跑心率正常，慢跑有助于增强免疫力，减脂。请保持哦！'
     }
-    if (this.sportDate.runhurt > 160) {
+    if (this.sportDate.runRhythm > 160) {
       msg.runmsg =
         '您的慢跑心率偏高，请调整跑步速度或步频，若出现身体不适，请减少慢跑时长！'
     } else {
       msg.runmsg = '您的慢跑心率正常，慢跑有助于增强免疫力，减脂。请保持哦！'
     }
-    if (this.sportDate.swimhurt > 120 && this.sportDate.swimhurt < 130) {
-      msg.swimmsg = '您的游泳心率正常，慢跑有助于增强免疫力，减脂。请保持哦！'
+    if (this.sportDate.swimRhythmhurt > 120 && this.sportDate.swimRhythmhurt < 130) {
+      msg.swimRhythmmsg = '您的游泳心率正常，慢跑有助于增强免疫力，减脂。请保持哦！'
     }
-    if (this.sportDate.runhurt > 160) {
-      msg.swimmsg = '您的游泳心率偏高，请调整速度或时间'
+    if (this.sportDate.runRhythm > 160) {
+      msg.swimRhythmmsg = '您的游泳心率偏高，请调整速度或时间'
     } else {
-      msg.swimmsg = '您的游泳心率正常，慢跑有助于增强免疫力，减脂。请保持哦！'
+      msg.swimRhythmmsg = '您的游泳心率正常，慢跑有助于增强免疫力，减脂。请保持哦！'
     }
     msg.kal =
       parseFloat(this.sportDate.runDate) * 215 +
       parseFloat(this.sportDate.runDate) * 650 +
-      parseFloat(this.sportDate.swimDate) * 800
+      parseFloat(this.sportDate.swimRhythmDate) * 800
     this.msg = msg
   },
   mounted () {

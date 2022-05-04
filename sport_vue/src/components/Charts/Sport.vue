@@ -25,7 +25,7 @@
           <el-input v-model="form.footDate"></el-input>
         </el-form-item>
         <el-form-item label="行走心率(次/分)">
-          <el-input v-model="form.foothurt"></el-input>
+          <el-input v-model="form.footRhythm"></el-input>
         </el-form-item>
         <el-form-item label="跑步时长(h)">
           <el-input v-model="form.runDate"></el-input>
@@ -34,10 +34,10 @@
           <el-input v-model="form.rnnhurt"></el-input>
         </el-form-item>
         <el-form-item label="游泳时长(h)">
-          <el-input v-model="form.swimDate"></el-input>
+          <el-input v-model="form.swimRhythmDate"></el-input>
         </el-form-item>
         <el-form-item label="游泳心率(次/分)">
-          <el-input v-model="form.swimhurt"></el-input>
+          <el-input v-model="form.swimRhythmhurt"></el-input>
         </el-form-item>
         <el-form-item label="操作">
           <template>
@@ -58,7 +58,7 @@
       <el-input v-model="myform.mrunDate"></el-input>
     </el-form-item>
     <el-form-item label="游泳时长">
-      <el-input v-model="myform.mswimDate"></el-input>
+      <el-input v-model="myform.mswimRhythmDate"></el-input>
     </el-form-item>
   </el-form>
   <div slot="footer" class="dialog-footer">
@@ -79,8 +79,12 @@ export default {
     return {
       form: {},
       id: window.sessionStorage.getItem('id'),
+
+      //显示分析表单
       dialog: false,
+      // 控制不能重复提交，提交完tag变成0
       tag: 1,
+      // 制定计划显示隐藏
       plantag: 1,
       dialogFormVisible: false,
       myform: {},
@@ -103,7 +107,7 @@ export default {
     addPlan () {
       window.sessionStorage.setItem('mfootDate', this.myform.mfootDate)
       window.sessionStorage.setItem('mrunDate', this.myform.mrunDate)
-      window.sessionStorage.setItem('mswimDate', this.myform.mswimDate)
+      window.sessionStorage.setItem('mswimRhythmDate', this.myform.mswimRhythmDate)
       window.sessionStorage.setItem('plan', 'true')
       this.plantag = 0
       this.$message.success('定制计划成功')

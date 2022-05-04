@@ -1,6 +1,8 @@
 <!--/#/searchmyinfo-->
 
+
 <template>
+<!-- 管理员--用户数据列表 -->
   <div>
     <el-card>
       <el-table :data="infolist" style="width: 100%" border  v-if="!dialog">
@@ -34,7 +36,7 @@
       </el-table>
       <Show v-if="dialog" :allDate="allDate" @return="dialog = false"></Show>
     </el-card>
-    <button @click="handleClick">click</button>
+    <button @click="handleClick">clickxx</button>
   </div>
 </template>
 
@@ -51,7 +53,7 @@ export default {
   data () {
     return {
       dialog: false,
-      message: '徐佳兴'
+      // message: 'll'
     }
   },
   methods: {

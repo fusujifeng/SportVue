@@ -51,32 +51,18 @@ module.exports = {
     hotOnly: false,
     // http 代理配置
     proxy: {
-      '/api': {
-        target: 'http://api.tianapi.com/caipu/index',
-        changeOrigin: true,
-        pathRewrite: {
-          '^/api': ''
-        }
-      },
+     
+      
       '/server': {
         target: 'http://localhost:3800/server/',
         changeOrigin: true,
         pathRewrite: {
           '^/server': ''
         }
-      },
-      '/user': {
-        target: 'http://localhost:7000/user/',
-        changeOrigin: true,
-        pathRewrite: {
-          '^/user': ''
-        }
       }
+     
     },
     before: (app) => {}
   },
-  // 第三方插件配置
-  pluginOptions: {
-
-  }
+ 
 }

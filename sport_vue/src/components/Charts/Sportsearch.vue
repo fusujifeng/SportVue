@@ -8,10 +8,10 @@
         <el-table-column prop="sex" label="性别"> </el-table-column>
         <el-table-column prop="footDate" label="慢走时间"> </el-table-column>
         <el-table-column prop="runDate" label="慢跑时间"> </el-table-column>
-        <el-table-column prop="swimDate" label="游泳时间"> </el-table-column>
-        <el-table-column prop="foothurt" label="慢走心率"> </el-table-column>
-        <el-table-column prop="runhurt" label="慢跑心率"> </el-table-column>
-        <el-table-column prop="swimhurt" label="游泳心率"> </el-table-column>
+        <el-table-column prop="swimRhythmDate" label="游泳时间"> </el-table-column>
+        <el-table-column prop="footRhythm" label="慢走心率"> </el-table-column>
+        <el-table-column prop="runRhythm" label="慢跑心率"> </el-table-column>
+        <el-table-column prop="swimRhythmhurt" label="游泳心率"> </el-table-column>
         <el-table-column label="操作">
           <template slot-scope="scope">
           <el-button type="primary" size="mini" @click="show(scope.row._id)">查看</el-button>
@@ -40,9 +40,7 @@ export default {
   },
   methods: {
     async getDate () {
-      const { data: res } = await this.$http.get(
-        '/server/sport/mysport/' + this.id
-      )
+      const { data: res } = await this.$http.get('/server/sport/mysport/' + this.id)
       if (res.status !== 200) return this.$message.error('获取列表失败')
       this.tableData = res.data
     },

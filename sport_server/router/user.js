@@ -1,7 +1,9 @@
 const express = require("express");
 const router = express.Router();
 const User = require("../models/User");
+//bcrypt加密
 const bcrypt = require("bcrypt");
+//jwt和passport：验证token的中间件
 const jwt = require("jsonwebtoken");
 const passport = require("passport");
 const keys = require("../config/keys");
@@ -104,13 +106,16 @@ router.post("/login", (req, res) => {
         });
       }
       if (user.type === req.body.type && user.type === "用户") {
+        // isMath：返回的是一个布尔值
         bcrypt.compare(password, user.password).then((isMath) => {
           if (isMath) {
+            // 配置token的加密方式，通过user.id加密
             const rule = {
               id: user.id,
               name: user.username,
               type: user.type,
             };
+            //通过rule制定的规则加密
             jwt.sign(
               rule,
               keys.secretOrKey,
@@ -211,8 +216,8 @@ router.post("/login", (req, res) => {
                           name: "运动数据查询",
                           path: "/Ssport",
                         },
-                        ]
-                      }
+                      ]
+                    }
                   ],
                 });
               }
@@ -238,6 +243,7 @@ router.post("/login", (req, res) => {
       });
     });
 });
+
 router.post("/register", (req, res) => {
   User.findOne({
     username: req.body.username,
@@ -257,6 +263,8 @@ router.post("/register", (req, res) => {
       type: req.body.type,
       phone: parseInt(req.body.phone),
     });
+
+    //调用genSalt方法加密
     bcrypt.genSalt(10, function (err, salt) {
       bcrypt.hash(newUser.password, salt, (err, hash) => {
         if (err) throw err;
@@ -270,19 +278,24 @@ router.post("/register", (req, res) => {
             })
           )
           .catch((err) => console.log(err));
-        // Store hash in your password DB.
+
       });
     });
   });
 });
+
+//通用--个人信息查询：
+//根据id查找返回自己的信息
 router.get("/mymsg/:id", (req, res) => {
   User.findOne({
     _id: req.params.id,
   })
     .then((info) => {
       return res.json({
+        //返回自己的info
         status: 200,
         myinfo: info,
+
       });
     })
     .catch((err) => {
@@ -293,9 +306,17 @@ router.get("/mymsg/:id", (req, res) => {
     });
 });
 
+//通用--个人信息修改
+router.post('/edit/', (req, res) => {
+  User.findOneAndUpdate({ _id: req.body._id }, { $set: req.body }, { new: true }).then(() => {
+    return res.json({ status: 200 })
+  })
+})
 
+//管理员--用户管理
 router.get(
   "/allUser/:id",
+  //authenticate验证token，有token才能访问
   passport.authenticate("jwt", {
     session: false,
   }),
@@ -304,7 +325,6 @@ router.get(
       _id: req.params.id,
     })
       .then((user) => {
-        console.log(user);
         if (user.type !== "管理员")
           return res.json({
             status: 400,
@@ -340,9 +360,7 @@ router.delete("/delete/:id", (req, res) => {
     });
   });
 });
-router.post('/edit/',(req,res) => {
-  User.findOneAndUpdate({_id:req.body._id},{$set:req.body},{new:true}).then(()=>{
-    return res.json({status:200})
-  })
-})
+
 module.exports = router;
+
+

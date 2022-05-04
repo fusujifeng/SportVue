@@ -39,10 +39,16 @@ export default {
   },
   methods: {
     async getInfo () {
-      const { data: res } = await this.$http.get(
-        '/server/user/mymsg/' + this.id
-      )
+      const { data: res } = await this.$http.get('/server/user/mymsg/' + this.id)
+
+      //   getInfo () {
+      //   this.$http.get('/server/user/mymsg/' + this.id)
+            // .then(data=>{
+          // console.log(data);
+      // }
+      // )
       if (res.status !== 200) return this.$message.error('获取信息失败')
+      
       this.editForm = res.myinfo
     },
     async editConfirm () {

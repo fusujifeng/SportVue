@@ -51,6 +51,7 @@ export default {
       const { data: res } = await this.$http.post('/server/user/login/', this.loginForm)
       console.log(res)
       if (res.status !== 200) return this.$message.error('账号类型错误或账号、密码错误')
+      //类cookies，保存登录token状态
       window.sessionStorage.setItem('token', res.token)
       window.sessionStorage.setItem('type', res.user.type)
       window.sessionStorage.setItem('menu', JSON.stringify(res.menu))

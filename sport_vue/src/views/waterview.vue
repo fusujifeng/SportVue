@@ -3,12 +3,13 @@
     <el-card id="main"></el-card>
     <el-card class="msg">
       <el-descriptions title="数据分析" column = 1 >
-        <el-descriptions-item label="体温数据">
+        <el-descriptions-item label="饮水量数据">
           <el-tag v-for="(item, i) in waterdata.water" :key="i"
             >{{ item }}ml</el-tag
           >
         </el-descriptions-item>
         <el-descriptions-item label="单次饮水进度">
+          <!-- 饮水环-element进度条 -->
             <el-progress type="circle" :percentage="parseFloat((waterinfo.one/500).toFixed(2))*100"></el-progress>
             <el-progress type="circle" :percentage="parseFloat((waterinfo.middle/375).toFixed(2))*100"></el-progress>
             <el-progress type="circle" :percentage="parseFloat((waterinfo.last/375).toFixed(2))*100"></el-progress>
@@ -50,7 +51,7 @@ export default {
       for (let i = 0; i < this.waterdata.water.length; i++) {
         msg.num += parseInt(this.waterdata.water[i])
       }
-      if (msg.num < 1250) {
+      if (msg.num < 1500) {
         msg.watermsg = '今天饮水量不足，请保证每天充足饮水'
       } else {
         msg.watermsg = '今天饮水量充足，请观察背景色曲线，如果成下降趋势，请调整饮水时间。'
@@ -88,9 +89,9 @@ export default {
       },
       yAxis: {
         type: 'value',
-        min: 200,
-        max: 500,
-        interval: 60,
+        min: 0,
+        max: 600,
+        interval: 500,
         axisLabel: {
           formatter: '{value} ml'
         },

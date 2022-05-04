@@ -130,6 +130,7 @@ export default {
     }
   },
   methods: {
+    // 立即提交按钮
     async addConfirm () {
       const { data: res } = await this.$http.post(
         '/server/chart/addcharDate/' + this.id,
@@ -144,9 +145,7 @@ export default {
       this.dialogVisible = false
       this.active = 1
     },
-    showss (n) {
-      console.log(n)
-    }
+   
   }
 }
 </script>

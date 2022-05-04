@@ -12,7 +12,8 @@ Vue.config.productionTip = false
 // 配置请求头
 axios.interceptors.request.use(config => {
   config.headers.Authorization = window.sessionStorage.getItem('token')
-  // config.headers.type = window.sessionStorage.getItem('type')
+
+  // 每次请求的时候会带着请求头发送请求
   return config
 })
 axios.interceptors.response.use(config => {
