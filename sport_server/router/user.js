@@ -92,6 +92,11 @@ router.post("/login", (req, res) => {
                         name: "修改记录",
                         path: "/journal",
                       },
+                      {
+                        id: "4-2",
+                        name: "地图",
+                        path: "/map",
+                      },
                     ],
                   },
                 ],
@@ -217,6 +222,18 @@ router.post("/login", (req, res) => {
                         name: "运动数据查询",
                         path: "/Ssport",
                       },
+                    ]
+                  },
+                  {
+                    id: "4",
+                    name: "更多信息",
+                    children: [
+                      {
+                        id: "4-1",
+                        name: "地图",
+                        path: "/map",
+                      },
+
                     ]
                   }
                 ],

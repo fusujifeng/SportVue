@@ -21,7 +21,8 @@ import Sprtsearch from '../components/Charts/Sportsearch.vue'
 import Edit from '../components/User/Edit.vue'
 // 添加日志功能
 import journal from "@/components/UserInfo/Journal";
-
+//地图功能
+import baiduMap from "@/components/More/baiduMap";
 Vue.use(VueRouter)
 
 const router = new VueRouter({
@@ -47,7 +48,8 @@ const router = new VueRouter({
         { path: '/Swater', component: Watesearch },
         { path: '/Ssport', component: Sprtsearch },
         { path: '/editmymsg', component: Edit },
-        { path: '/journal', component: journal }
+        { path: '/journal', component: journal },
+        { path: '/map', component: baiduMap }
       ]
     }
   ]
