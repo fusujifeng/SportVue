@@ -1,10 +1,17 @@
 <template>
-  <div class="baidumap" id="allmap"></div>
+  <div>
+    <div class="baidumap" id="allmap"></div>
+    <weather/>
+  </div>
 </template>
 
 
 <script>
+import weather from "@/components/More/weather";
 export default {
+  components: {
+weather
+  },
   mounted() {
     this.baiduMap()
 
