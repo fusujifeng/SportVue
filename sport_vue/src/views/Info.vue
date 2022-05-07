@@ -53,7 +53,7 @@ export default {
   data () {
     return {
       dialog: false,
-      // message: 'll'
+      message: 'xujiaxin'
     }
   },
   methods: {
@@ -88,7 +88,7 @@ export default {
     },
     handleClick(){
       this.$bus.$emit("deletelog",this.message )
-      console.log(this.message)
+      console.log("click1"+this.message)
 
     }
   }

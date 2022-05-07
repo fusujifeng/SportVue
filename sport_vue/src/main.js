@@ -24,7 +24,7 @@ Vue.prototype.$http = axios
 new Vue({
   beforeCreate() {
     Vue.prototype.$bus=this
-  },
+  }, 
   router,
   render: h => h(App)
 }).$mount('#app')

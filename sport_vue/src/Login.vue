@@ -3,7 +3,7 @@
     <div class="login_box">
       <el-card>
         <div>
-          <img src="./assets/img/sunshine.jpg" alt="" />
+          <img src="./assets/img/sunshine.jpg" alt=""/>
         </div>
         <h3>健康数据分析平台</h3>
         <el-form :model="loginForm" :rules="rules" ref="ruleForm">
@@ -32,7 +32,8 @@
             <el-button type="success" @click="loginConfirm">登录</el-button>
             <el-button type="danger" @click="goRegister">注册</el-button>
             <el-button type="primary" @click="createData"
-              >数据采集（模拟）</el-button
+            >数据采集（模拟）
+            </el-button
             >
           </el-form-item>
         </el-form>
@@ -58,7 +59,7 @@ export default {
       this.$router.push("/register");
     },
     async loginConfirm() {
-      const { data: res } = await this.$http.post(
+      const {data: res} = await this.$http.post(
         "/server/user/login/",
         this.loginForm
       );
@@ -72,9 +73,9 @@ export default {
       window.sessionStorage.setItem("id", res.user._id);
       this.$router.push("/home");
       this.$message.success("登录成功");
-    },
+    },  
     async createData() {
-      const { data: res } = await this.$http.post("/server/user/create/");
+      const {data: res} = await this.$http.post("/server/user/create/");
       if (res.status !== 200) return this.$message.error("自动生成失败");
       console.log(res);
       console.log("开始模拟");
@@ -97,12 +98,14 @@ export default {
   align-items: center;
   background-color: azure;
 }
+
 .login_box {
   width: 600px;
   height: 400px;
   background: url(./assets/img/sport.png) no-repeat center;
   background-size: 100%;
 }
+
 .main .el-card {
   width: 700px;
   height: 500px;
@@ -113,10 +116,12 @@ export default {
   opacity: 0.9;
   position: relative;
 }
+
 .main .el-card h3 {
   text-align: center;
   margin-top: 170px;
 }
+
 .main .el-card img {
   width: 150px;
   height: 150px;
@@ -131,6 +136,7 @@ export default {
   transform: translateX(-50%);
   cursor: pointer;
 }
+
 .main .el-card .el-form {
   display: flex;
   flex-direction: column;
@@ -138,13 +144,16 @@ export default {
   justify-content: center;
   /* margin-top: 60px; */
 }
+
 .main .el-card .el-form .el-input {
   width: 300px;
 }
+
 .main .el-card .el-form .el-button {
   width: 200px;
   border-radius: 15px;
 }
+
 .main {
   background: url(./assets/img/bacground-sport.jpg) no-repeat center;
   background-size: 100%;
