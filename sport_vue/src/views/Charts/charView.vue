@@ -110,7 +110,7 @@
   </div>
 </template>
 <script>
-import Show from '../../components/Show.vue'
+import Show from '../../components/AllSummary.vue'
 export default {
   components: {
     Show

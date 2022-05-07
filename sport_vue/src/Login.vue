@@ -6,15 +6,15 @@
           <img src="../public/assets/img/sunshine.jpg" alt=""/>
         </div>
         <h3>健康数据分析平台</h3>
-        <el-form :model="loginForm" :rules="rules" ref="ruleForm">
-          <el-form-item>
+        <el-form :model="loginForm" :rules="loginRules" ref="ruleForm">
+          <el-form-item prop="username">
             <el-input
               v-model="loginForm.username"
               placeholder="请输入账号"
               prefix-icon="el-icon-user"
             ></el-input>
           </el-form-item>
-          <el-form-item>
+          <el-form-item prop="password">
             <el-input
               v-model="loginForm.password"
               placeholder="请输入密码"
@@ -24,6 +24,7 @@
           </el-form-item>
           <el-form-item>
             <el-radio-group v-model="loginForm.type">
+
               <el-radio label="用户"></el-radio>
               <el-radio label="管理员"></el-radio>
             </el-radio-group>
@@ -31,10 +32,10 @@
           <el-form-item>
             <el-button type="success" @click="loginConfirm">登录</el-button>
             <el-button type="danger" @click="goRegister">注册</el-button>
-            <el-button type="primary" @click="createData"
-            >数据采集（模拟）
-            </el-button
-            >
+            <el-button type="warning" @click="resetForm">重置表单</el-button>
+            <el-button type="primary" @click="createData">数据采集（模拟）</el-button>
+
+
           </el-form-item>
         </el-form>
       </el-card>
@@ -51,21 +52,40 @@ export default {
         password: "",
         type: "用户",
       },
-      rules: {},
+      //表单的验证规则对象
+      loginRules: {
+        //用户名校验规则
+        username:[
+          {require:true,message:"请输入用户名",trigger:"blur"},
+          {min:3,max:10,require:true,message:"用户名长度在3-10个字符",trigger:"blur"}
+        ],
+        //密码校验规则
+        password:[
+          {require:true,message:"请输入密码",trigger:"blur"},
+          {min:3,max:10,require:true,message:"密码长度在3-10个字符",trigger:"blur"}
+        ],
+
+      },
     };
   },
   methods: {
     goRegister() {
       this.$router.push("/register");
     },
-    async loginConfirm() {
-      const {data: res} = await this.$http.post(
-        "/server/user/login/",
-        this.loginForm
-      );
-      console.log(res);
-      if (res.status !== 200)
+    resetForm(){
+      this.$refs.ruleForm.resetFields();
+    },
+    loginConfirm() {
+      //表单预验证(3-10位数字账号/密码)
+      this.$refs.ruleForm.validate( async valid => {
+        if(!valid) return
+
+
+      const {data: res} = await this.$http.post("/server/user/login/", this.loginForm);
+      console.log("i am res",res);
+      if (res.status !== 200) {
         return this.$message.error("账号类型错误或账号、密码错误");
+      }
       //类cookies，保存登录token状态
       window.sessionStorage.setItem("token", res.token);
       window.sessionStorage.setItem("type", res.user.type);
@@ -73,7 +93,9 @@ export default {
       window.sessionStorage.setItem("id", res.user._id);
       this.$router.push("/home");
       this.$message.success("登录成功");
+      })
     },
+
     async createData() {
       const {data: res} = await this.$http.post("/server/user/create/");
       if (res.status !== 200) return this.$message.error("自动生成失败");
@@ -150,7 +172,7 @@ export default {
 }
 
 .main .el-card .el-form .el-button {
-  width: 200px;
+  width: 150px;
   border-radius: 15px;
 }
 

@@ -14,7 +14,7 @@
             <span>{{item.name}}</span>
           </template>
 
-<!--          子菜单-->
+<!--子菜单-->
           <el-menu-item-group>
             <el-menu-item  v-for="i in item.children" :key="i.id" :index="i.id" @click="push(i.path)">{{i.name}}</el-menu-item>
           </el-menu-item-group>

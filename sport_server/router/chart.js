@@ -6,6 +6,8 @@ const Chart = require('../models/Charts')
 const User = require('../models/User')
 const jwt = require('jsonwebtoken')
 const passport = require('passport')
+const Presure = require("../models/Presure");
+const Log = require("../models/Log")
 
 //整体数据测绘-数据录入与测绘
 router.post('/addcharDate/:id',(req,res) => {
@@ -43,8 +45,20 @@ router.get('/allInfo',(req,res) => {
     })
 })
 router.delete('/delete/:id',(req,res) => {
+    console.log("dddf")
+    console.log(req.params.id);
+//先存再删
+    const newData = {}
+    newData.id = req.params.id
+    newData.log = "删除列表"
+    new Log(newData).save().then(success => {
+        // return res.json({status:200,data:success})
+
+    })
+    //再删
     Chart.deleteOne({_id:req.params.id}).then((succcess) => {
         return res.json({status:200,msg:'success'})
     })
+
 })
 module.exports = router

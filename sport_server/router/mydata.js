@@ -6,6 +6,7 @@ const Presure = require('../models/Presure')
 const Suger = require('../models/Suger')
 const Tempure = require('../models/Tempure')
 const Water = require('../models/Water')
+const Log = require('../models/Log')
 
 //用户填写体温数据
 router.post('/addtempure/:id',(req,res) => {
@@ -19,6 +20,14 @@ router.post('/addtempure/:id',(req,res) => {
 //根据id查询 所有体温数据
 router.get('/mytempure/:id',(req,res) => {
     Tempure.find({id:req.params.id}).then(success => {
+        return res.json({status:200,data:success})
+    })
+})
+
+//查所有log
+router.get('/log/:id',(req,res) => {
+    Log.find({id:req.params.id}).then(success => {
+
         return res.json({status:200,data:success})
     })
 })

@@ -21,6 +21,10 @@ axios.interceptors.response.use(config => {
   return config
 })
 Vue.prototype.$http = axios
+
+//关闭vue的生产提示
+Vue.config.productionTip = false
+
 new Vue({
   beforeCreate() {
     Vue.prototype.$bus=this
@@ -28,3 +32,5 @@ new Vue({
   router,
   render: h => h(App)
 }).$mount('#app')
+
+

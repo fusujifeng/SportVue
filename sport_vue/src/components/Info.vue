@@ -34,17 +34,17 @@
                 </template>
             </el-table-column>
       </el-table>
-      <Show v-if="dialog" :allDate="allDate" @return="dialog = false"></Show>
+      <AllSummary v-if="dialog" :allDate="allDate" @return="dialog = false"></AllSummary>
     </el-card>
     <button @click="handleClick">clickxx</button>
   </div>
 </template>
 
 <script>
-import Show from './Show.vue'
+import AllSummary from './AllSummary.vue'
 export default {
   components: {
-    Show
+    AllSummary
   },
   props: {
     infolist: [],
@@ -64,6 +64,8 @@ export default {
       this.allDate = res.myINfo
       this.dialog = true
     },
+
+    //得改
     deleteConfirm (id) {
       this.$confirm('此操作将永久删除该信息, 是否继续?', '提示', {
         confirmButtonText: '确定',
@@ -89,6 +91,8 @@ export default {
     handleClick(){
       this.$bus.$emit("deletelog",this.message )
       console.log("click1"+this.message)
+
+      sessionStorage.setItem("deletelog", this.message);
 
     }
   }

@@ -20,7 +20,7 @@ import Watesearch from '../views/Charts/Watersearch.vue'
 import Sprtsearch from '../views/Charts/Sportsearch.vue'
 import Edit from '../views/User/Edit.vue'
 // 添加日志功能
-import journal from "@/views/UserInfo/Journal";
+import journal from "@/views/More/Journal";
 //地图功能
 import baiduMap from "@/views/More/baiduMap";
 Vue.use(VueRouter)
