@@ -82,7 +82,7 @@
     </h3>
     <div class="picture">
 
-      <img width="475"  src="../../assets/img/sugar.jpg">
+      <img width="475"  src="../../../public/assets/img/sugar.jpg">
     </div>
   </div>
   </div>

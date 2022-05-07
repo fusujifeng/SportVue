@@ -3,7 +3,7 @@ import App from './App.vue'
 import router from './router'
 import './plugins/element.js'
 import './plugins/wyz-echarts.js'
-import './assets/css/main.css'
+import '../public/assets/css/main.css'
 import './plugins/eventbus'
 import axios from 'axios'
 

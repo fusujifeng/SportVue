@@ -2,7 +2,7 @@
   <div class="message">
     <el-card>
       <el-descriptions title="个人信息" border column="1">
-        <el-descriptions-item label="默认头像"><img src="../../assets/img/11运动-网球.png" alt=""></el-descriptions-item>
+        <el-descriptions-item label="默认头像"><img src="../../../public/assets/img/11运动-网球.png" alt=""></el-descriptions-item>
         <el-descriptions-item label="姓名">{{myMessage.name}}</el-descriptions-item>
         <el-descriptions-item label="年龄">{{myMessage.age}}</el-descriptions-item>
         <el-descriptions-item label="性别">{{myMessage.sex}}</el-descriptions-item>

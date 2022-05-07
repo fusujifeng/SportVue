@@ -1,7 +1,7 @@
 <template>
   <el-container>
     <el-aside width="200px">
-      <img src="./assets/img/avator.png" alt="">
+      <img src="../public/assets/img/avator.png" alt="">
       <h3>健康数据分析平台</h3>
       <el-button  type="danger" @click="loginOut">退出登录</el-button>
       <el-menu
@@ -24,10 +24,10 @@
     </el-aside>
     <el-main>
       <div class="home" v-if="dialog">
-        <el-card><img src="../src/assets/img/home1.png" alt=""></el-card>
-        <el-card><img src="../src/assets/img/home2.png" alt=""></el-card>
-        <el-card><img src="../src/assets/img/home3.png" alt=""></el-card>
-        <el-card><img src="../src/assets/img/home4.png" alt=""></el-card>
+        <el-card><img src="../public/assets/img/home1.png" alt=""></el-card>
+        <el-card><img src="../public/assets/img/home2.png" alt=""></el-card>
+        <el-card><img src="../public/assets/img/home3.png" alt=""></el-card>
+        <el-card><img src="../public/assets/img/home4.png" alt=""></el-card>
       </div>
       <router-view></router-view>
     </el-main>

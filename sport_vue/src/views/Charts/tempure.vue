@@ -167,7 +167,7 @@
   </div>
     <div class="picture">
 
-      <img src="../../assets/img/tempture.jpg">
+      <img src="../../../public/assets/img/tempture.jpg">
     </div>
   </div>
 </template>

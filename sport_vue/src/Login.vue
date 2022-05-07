@@ -3,7 +3,7 @@
     <div class="login_box">
       <el-card>
         <div>
-          <img src="./assets/img/sunshine.jpg" alt=""/>
+          <img src="../public/assets/img/sunshine.jpg" alt=""/>
         </div>
         <h3>健康数据分析平台</h3>
         <el-form :model="loginForm" :rules="rules" ref="ruleForm">
@@ -73,7 +73,7 @@ export default {
       window.sessionStorage.setItem("id", res.user._id);
       this.$router.push("/home");
       this.$message.success("登录成功");
-    },  
+    },
     async createData() {
       const {data: res} = await this.$http.post("/server/user/create/");
       if (res.status !== 200) return this.$message.error("自动生成失败");
@@ -102,7 +102,7 @@ export default {
 .login_box {
   width: 600px;
   height: 400px;
-  background: url(./assets/img/sport.png) no-repeat center;
+  background: url(../public/assets/img/sport.png) no-repeat center;
   background-size: 100%;
 }
 
@@ -155,7 +155,7 @@ export default {
 }
 
 .main {
-  background: url(./assets/img/bacground-sport.jpg) no-repeat center;
+  background: url(../public/assets/img/bacground-sport.jpg) no-repeat center;
   background-size: 100%;
 }
 </style>>

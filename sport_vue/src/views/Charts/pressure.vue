@@ -97,7 +97,7 @@
   </div>
     <div class="picture">
 
-      <img src="../../assets/img/pressure.jpg" width="450px">
+      <img src="../../../public/assets/img/pressure.jpg" width="450px">
     </div>
   </div>
 </template>

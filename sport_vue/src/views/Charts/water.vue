@@ -78,7 +78,7 @@
       </div>
   <div class="picture">
 
-    <img src="../../assets/img/water.jpg" width="500px">
+    <img src="../../../public/assets/img/water.jpg" width="500px">
   </div>
 </div>
 </template>
