@@ -3,26 +3,26 @@ import VueRouter from 'vue-router'
 import Login from '../Login.vue'
 import Register from '../register.vue'
 import Home from '../Home.vue'
-import Mymeeage from '../components/Mymessage/Mymessage.vue'
-import Messagegocharts from '../components/Charts/charView.vue'
-import User from '../components/User/User.vue'
-import InfoList from '../components/UserInfo/UserInfo.vue'
-import Searchmyinfo from '../components/UserInfo/Searchmyinfo.vue'
-import Tempture from '../components/Charts/tempure.vue'
-import Suger from '../components/Charts/suger.vue'
-import Pressure from '../components/Charts/pressure.vue'
-import Water from '../components/Charts/water.vue'
-import Sport from '../components/Charts/Sport.vue'
-import Temsearch from '../components/Charts/Temsearch.vue'
-import Presuresearch from '../components/Charts/Puresuresearch.vue'
-import Sugersearch from '../components/Charts/Sugersearch.vue'
-import Watesearch from '../components/Charts/Watersearch.vue'
-import Sprtsearch from '../components/Charts/Sportsearch.vue'
-import Edit from '../components/User/Edit.vue'
+import Mymeeage from '../views/Mymessage/Mymessage.vue'
+import Messagegocharts from '../views/Charts/charView.vue'
+import User from '../views/User/User.vue'
+import InfoList from '../views/UserInfo/UserInfo.vue'
+import Searchmyinfo from '../views/UserInfo/Searchmyinfo.vue'
+import Tempture from '../views/Charts/tempure.vue'
+import Suger from '../views/Charts/suger.vue'
+import Pressure from '../views/Charts/pressure.vue'
+import Water from '../views/Charts/water.vue'
+import Sport from '../views/Charts/Sport.vue'
+import Temsearch from '../views/Charts/Temsearch.vue'
+import Presuresearch from '../views/Charts/Puresuresearch.vue'
+import Sugersearch from '../views/Charts/Sugersearch.vue'
+import Watesearch from '../views/Charts/Watersearch.vue'
+import Sprtsearch from '../views/Charts/Sportsearch.vue'
+import Edit from '../views/User/Edit.vue'
 // 添加日志功能
-import journal from "@/components/UserInfo/Journal";
+import journal from "@/views/UserInfo/Journal";
 //地图功能
-import baiduMap from "@/components/More/baiduMap";
+import baiduMap from "@/views/More/baiduMap";
 Vue.use(VueRouter)
 
 const router = new VueRouter({
@@ -54,6 +54,8 @@ const router = new VueRouter({
     }
   ]
 })
+
+//导航守卫，路由元信息，验证用户是否登录
 router.beforeEach((to, from, next) => {
   // to 将要访问的地址
   // from 从哪个路径跳转而来
@@ -61,7 +63,6 @@ router.beforeEach((to, from, next) => {
   if (to.path === '/login' | to.path === '/register') return next()
   const tokenStr = window.sessionStorage.getItem('token')
   if (!tokenStr) {
-    // this.$message.info('请先登录')
     return next('/login')
   }
   next()

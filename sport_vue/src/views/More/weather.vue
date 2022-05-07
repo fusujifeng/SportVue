@@ -41,6 +41,8 @@ export default {
     let script = document.createElement('script');
     script.type = 'text/javascript';
     script.src="https://widget.qweather.net/standard/static/js/he-standard-common.js?v=2.0";
+    //选择城市:自动，默认选项，根据IP地址粗略判断用户的所在地
+
     document.getElementsByTagName('head')[0].appendChild(script);
   }
 }

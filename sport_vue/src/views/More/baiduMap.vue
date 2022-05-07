@@ -7,7 +7,7 @@
 
 
 <script>
-import weather from "@/components/More/weather";
+import weather from "@/views/More/weather";
 export default {
   components: {
 weather
