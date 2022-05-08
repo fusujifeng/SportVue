@@ -11,7 +11,8 @@ const more = require('./router/more')
 
 // const cors =require("cors")
 const app = express();
-mongoose.connect('mongodb://chenhang:zxcvbnm777@cluster0-shard-00-00.nb3yl.mongodb.net:27017,cluster0-shard-00-01.nb3yl.mongodb.net:27017,cluster0-shard-00-02.nb3yl.mongodb.net:27017/sport?ssl=true&replicaSet=atlas-e0belj-shard-0&authSource=admin&retryWrites=true&w=majority')
+// mongoose.connect('mongodb://chenhang:zxcvbnm777@cluster0-shard-00-00.nb3yl.mongodb.net:27017,cluster0-shard-00-01.nb3yl.mongodb.net:27017,cluster0-shard-00-02.nb3yl.mongodb.net:27017/sport?ssl=true&replicaSet=atlas-e0belj-shard-0&authSource=admin&retryWrites=true&w=majority')
+   mongoose.connect('mongodb://127.0.0.1:27017')
     .then(() => console.log('数据库连接成功'))
     .catch(err => console.log(err, '连接失败'))
 

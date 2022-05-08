@@ -52,7 +52,8 @@ export default {
   data () {
     return {
       dialog: false,
-      message: 'xujiaxin'
+      message: 'xujiaxin',
+      // date:date.substring(0,10)
     }
   },
   methods: {

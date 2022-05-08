@@ -57,7 +57,7 @@ export default {
         //用户名校验规则
         username:[
           {require:true,message:"请输入用户名",trigger:"blur"},
-          {min:3,max:10,require:true,message:"用户名长度在3-10个字符",trigger:"blur"}
+          {min:3,max:15,require:true,message:"用户名长度在3-15个字符",trigger:"blur"}
         ],
         //密码校验规则
         password:[
