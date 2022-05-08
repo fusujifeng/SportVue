@@ -3,26 +3,30 @@ import VueRouter from 'vue-router'
 import Login from '../Login.vue'
 import Register from '../register.vue'
 import Home from '../Home.vue'
-import Mymeeage from '../views/Mymessage/Mymessage.vue'
-import Messagegocharts from '../views/Charts/charView.vue'
-import User from '../views/User/User.vue'
-import InfoList from '../views/UserInfo/UserInfo.vue'
-import Searchmyinfo from '../views/UserInfo/Searchmyinfo.vue'
-import Tempture from '../views/Charts/tempure.vue'
-import Suger from '../views/Charts/suger.vue'
-import Pressure from '../views/Charts/pressure.vue'
-import Water from '../views/Charts/water.vue'
-import Sport from '../views/Charts/Sport.vue'
-import Temsearch from '../views/Charts/Temsearch.vue'
-import Presuresearch from '../views/Charts/Puresuresearch.vue'
-import Sugersearch from '../views/Charts/Sugersearch.vue'
-import Watesearch from '../views/Charts/Watersearch.vue'
-import Sprtsearch from '../views/Charts/Sportsearch.vue'
-import Edit from '../views/User/Edit.vue'
+import Mymessage from '../views/Mymessage/Mymessage.vue'
+import AllDataShow from '../views/AllData/AllDataShow.vue'
+import AdminUserSearch from '../views/AdminUser/AdminUserSearch.vue'
+import InfoList from '../views/AdminUser/UserInfo.vue'
+import AllDataSearch from '../views/AllData/AllDataSearch.vue'
+import temperatureInput from '../views/PartData/temperatureInput.vue'
+import temperatureSearch from "@/views/PartData/temperatureSearch";
+import sugarInput from "@/views/PartData/sugarInput";
+import sugarSearch from "@/views/PartData/sugarSearch";
+import pressureinput from '../views/PartData/pressureInput.vue'
+import presuresearch from '../views/PartData/pressureSearch.vue'
+import waterInput from "@/views/PartData/waterInput";
+import waterSearch from "@/views/PartData/waterSearch";
+
+
+
+import sportInput from "@/views/Sport/SportInput";
+import sportSearch from "@/views/Sport/sportSearch";
+import Edit from '../views/Mymessage/MymessageEdit.vue'
 // 添加日志功能
 import journal from "@/views/More/Journal";
 //地图功能
 import baiduMap from "@/views/More/baiduMap";
+
 Vue.use(VueRouter)
 
 const router = new VueRouter({
@@ -32,21 +36,26 @@ const router = new VueRouter({
     {
       path: '/home',
       component: Home,
-      children: [{ path: '/mymessage', component: Mymeeage },
-        { path: '/messagegocharts', component: Messagegocharts },
-        { path: '/userLidt', component: User },
+      children: [{ path: '/mymessage', component: Mymessage },
+        { path: '/alldatashow', component: AllDataShow },
+        { path: '/userLidt', component: AdminUserSearch },
         { path: '/infoList', component: InfoList },
-        { path: '/searchmyinfo', component: Searchmyinfo },
-        { path: '/tempture', component: Tempture },
-        { path: '/suger', component: Suger },
-        { path: '/pressure', component: Pressure },
-        { path: '/water', component: Water },
-        { path: '/sport', component: Sport },
-        { path: '/Stempture', component: Temsearch },
-        { path: '/Ssuger', component: Sugersearch },
-        { path: '/Spressure', component: Presuresearch },
-        { path: '/Swater', component: Watesearch },
-        { path: '/Ssport', component: Sprtsearch },
+        { path: '/alldatasearch', component: AllDataSearch },
+
+        //八个小分支
+        { path: '/temperatureinput', component: temperatureInput },
+        { path: '/temperaturesearch', component: temperatureSearch },
+        { path: '/sugarinput', component: sugarInput },
+        { path: '/sugarsearch', component: sugarSearch },
+        { path: '/pressureinput', component: pressureinput },
+        { path: '/pressuresearch', component: presuresearch },
+        { path: '/waterinput', component: waterInput },
+        { path: '/watersearch', component: waterSearch },
+
+        //运动
+        { path: '/sportinput', component: sportInput },
+        { path: '/sportsearch', component: sportSearch },
+
         { path: '/editmymsg', component: Edit },
         { path: '/journal', component: journal },
         { path: '/map', component: baiduMap }

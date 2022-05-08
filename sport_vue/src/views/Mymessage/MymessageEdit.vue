@@ -48,7 +48,7 @@ export default {
       // }
       // )
       if (res.status !== 200) return this.$message.error('获取信息失败')
-      
+
       this.editForm = res.myinfo
     },
     async editConfirm () {

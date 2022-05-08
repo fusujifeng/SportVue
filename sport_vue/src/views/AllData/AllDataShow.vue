@@ -6,7 +6,7 @@
         <el-breadcrumb-item :to="{ path: '/home' }"
           >数据分析与测绘</el-breadcrumb-item
         >
-        <el-breadcrumb-item><a href="/">数据录入与测绘</a></el-breadcrumb-item>
+        <el-breadcrumb-item><a href="/sport_vue/public">数据录入与测绘</a></el-breadcrumb-item>
       </el-breadcrumb>
     </el-row>
     <el-steps :active="active" finish-status="success">

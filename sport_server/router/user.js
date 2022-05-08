@@ -159,12 +159,12 @@ router.post("/login", (req, res) => {
                                             {
                                                 id: "2-1",
                                                 name: "整体数据分析",
-                                                path: "/messagegocharts",
+                                                path: "/alldatashow",
                                             },
                                             {
                                                 id: "2-2",
                                                 name: "整体数据查询",
-                                                path: "/searchmyinfo",
+                                                path: "/alldatasearch",
                                             },
                                         ],
                                     },
@@ -175,42 +175,42 @@ router.post("/login", (req, res) => {
                                             {
                                                 id: "3-1",
                                                 name: "体温数据分析",
-                                                path: "/tempture",
+                                                path: "/temperatureinput",
                                             },
                                             {
                                                 id: "3-2",
                                                 name: "体温数据查询",
-                                                path: "/Stempture",
+                                                path: "/temperaturesearch",
                                             },
                                             {
                                                 id: "3-3",
                                                 name: "血糖数据分析",
-                                                path: "/suger",
+                                                path: "/sugarinput",
                                             },
                                             {
                                                 id: "3-4",
                                                 name: "血糖数据查询",
-                                                path: "/Ssuger",
+                                                path: "/sugarsearch",
                                             },
                                             {
                                                 id: "3-5",
                                                 name: "血压数据分析",
-                                                path: "/pressure",
+                                                path: "/pressureinput",
                                             },
                                             {
                                                 id: "3-6",
                                                 name: "血压数据查询",
-                                                path: "/Spressure",
+                                                path: "/pressureSearch",
                                             },
                                             {
                                                 id: "3-7",
                                                 name: "饮水数据分析",
-                                                path: "/water",
+                                                path: "/waterinput",
                                             },
                                             {
                                                 id: "3-8",
                                                 name: "饮水数据查询",
-                                                path: "/Swater",
+                                                path: "/watersearch",
                                             },
                                         ]
                                     },
@@ -221,12 +221,12 @@ router.post("/login", (req, res) => {
                                             {
                                                 id: "4-1",
                                                 name: "运动数据分析",
-                                                path: "/sport",
+                                                path: "/sportinput",
                                             },
                                             {
                                                 id: "4-2",
                                                 name: "运动数据查询",
-                                                path: "/Ssport",
+                                                path: "/sugersearch",
                                             },
                                         ]
                                     },
