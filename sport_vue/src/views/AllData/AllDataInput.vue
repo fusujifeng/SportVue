@@ -18,7 +18,7 @@
     <el-card>
       <el-form ref="form" label-width="120px" v-show="active === 1">
         <el-form-item label="上午八点体温">
-          <el-input v-model="allInfo.temperature[0]"></el-input><span v-show="allInfo.temperature[0]>37">1112</span>
+          <el-input v-model="allInfo.temperature[0]"></el-input><span v-show="allInfo.temperature[0]>37">体温过高！！！</span>
         </el-form-item>
         <el-form-item label="上午十一点体温">
           <el-input v-model="allInfo.temperature[1]"></el-input>
@@ -106,7 +106,7 @@
       >上一步</el-button
     >
   </el-card>
-  <Show :allDate = "allDate" v-if="dialogVisible" @return="returns"></Show>
+  <Show :allData = "allData" v-if="dialogVisible" @return="returns"></Show>
   </div>
 </template>
 <script>
@@ -126,18 +126,18 @@ export default {
       },
       id: window.sessionStorage.getItem('id'),
       dialogVisible: false,
-      allDate: {}
+      allData: {}
     }
   },
   methods: {
     // 立即提交按钮
     async addConfirm () {
       const { data: res } = await this.$http.post(
-        '/server/chart/addcharDate/' + this.id,
+        '/server/chart/addcharData/' + this.id,
         this.allInfo
       )
       if (res.status !== 200) return this.$message.error('提交数据失败')
-      this.allDate = res.data
+      this.allData = res.data
       console.log(res)
       this.dialogVisible = true
     },

@@ -9,8 +9,9 @@ const passport = require('passport')
 const Presure = require("../models/Presure");
 const Log = require("../models/Log")
 
+
 //整体数据测绘-数据录入与测绘
-router.post('/addcharDate/:id',(req,res) => {
+router.post('/addcharData/:id',(req,res) => {
     const newdata = {}
     newdata.temperature = req.body.temperature
     newdata.bloodSuger = req.body.bloodSuger
@@ -45,16 +46,18 @@ router.get('/allInfo',(req,res) => {
     })
 })
 router.delete('/delete/:id',(req,res) => {
-    console.log("dddf")
-    console.log(req.params.id);
-//先存再删
-    const newData = {}
-    newData.id = req.params.id
-    newData.log = "删除列表"
-    new Log(newData).save().then(success => {
-        // return res.json({status:200,data:success})
+    console.log("dddf",res.data)
 
-    })
+//先存再删
+//     const newData2 = {}
+//     newData2.temperature = res.params.temperature
+//
+//     console.log("tem"+newData2.temperature)
+//     newData2.log = "删除列表"
+//     new Log(newData2).save().then(success => {
+//         return res.json({status:200,data:success})
+//
+//     })
     //再删
     Chart.deleteOne({_id:req.params.id}).then((succcess) => {
         return res.json({status:200,msg:'success'})

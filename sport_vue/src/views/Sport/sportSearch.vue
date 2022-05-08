@@ -79,7 +79,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .el-button{
   float:right;
   margin-right: 30px;

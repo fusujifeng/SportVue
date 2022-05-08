@@ -36,7 +36,7 @@ import * as echarts from 'echarts'
 export default {
   props: {
     // 获取父级传过来的值
-    allDate: {}
+    allData: {}
   },
   data () {
     return {
@@ -76,7 +76,7 @@ export default {
         },
         series: [
           {
-            data: this.allDate.temperature,
+            data: this.allData.temperature,
             type: 'bar',
             smooth: true
           }
@@ -108,7 +108,7 @@ export default {
         },
         series: [
           {
-            data: this.allDate.bloodSuger,
+            data: this.allData.bloodSuger,
             type: 'line',
             showBackground: true,
             backgroundStyle: {
@@ -194,7 +194,7 @@ export default {
             type: 'line',
             smooth: true,
             // prettier-ignore
-            data: this.allDate.water,
+            data: this.allData.water,
             markArea: {
               itemStyle: {
                 color: 'rgba(255, 173, 177, 0.4)'
@@ -232,10 +232,10 @@ export default {
         blood: [],
         bloodmsg: ''
       }
-      for (let i = 0; i < this.allDate.temperature.length; i++) {
-        if (this.allDate.temperature[i] > 37) {
+      for (let i = 0; i < this.allData.temperature.length; i++) {
+        if (this.allData.temperature[i] > 37) {
           msg.tem.push(`在第${i + 1}时间段，存在体温偏高现象`)
-        } else if (this.allDate.temperature[i] < 36) {
+        } else if (this.allData.temperature[i] < 36) {
           msg.tem.push(`在第${i + 1}时间段体温偏低`)
         }
       }
@@ -244,10 +244,10 @@ export default {
       } else {
         msg.temmsg = '体温正常，请保持心情愉悦，加强锻炼！'
       }
-      for (let i = 0; i < this.allDate.bloodSuger.length; i++) {
-        if (this.allDate.bloodSuger[i] > 11) {
+      for (let i = 0; i < this.allData.bloodSuger.length; i++) {
+        if (this.allData.bloodSuger[i] > 11) {
           msg.suger.push(`在第${i + 1}时间段，存在血糖偏高现象`)
-        } else if (this.allDate.bloodSuger[i] < 4) {
+        } else if (this.allData.bloodSuger[i] < 4) {
           msg.suger.push(`在第${i + 1}时间段血糖偏低`)
         }
       }
@@ -257,8 +257,8 @@ export default {
         msg.sugermsg = '今天血糖波动幅度不大。请保持合理饮食。'
       }
       let num = 0
-      for (let i = 0; i < this.allDate.water.length; i++) {
-        num += parseInt(this.allDate.water[i])
+      for (let i = 0; i < this.allData.water.length; i++) {
+        num += parseInt(this.allData.water[i])
       }
       msg.num = num
       if (num <= 2200) {
@@ -266,8 +266,8 @@ export default {
       } else {
         msg.watermsg = '今天饮水量充足，请观察背景色曲线，如果成下降趋势，请调整饮水时间。'
       }
-      for (let i = 0; i < this.allDate.bloodPressure.length; i++) {
-        if (this.allDate.bloodPressure[i] > 140) {
+      for (let i = 0; i < this.allData.bloodPressure.length; i++) {
+        if (this.allData.bloodPressure[i] > 140) {
           msg.blood.push(`在第${i + 1}时间段，血压偏高`)
         }
       }

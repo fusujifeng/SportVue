@@ -3,21 +3,23 @@ const router = express.Router()
 const Sport = require('../models/Sport')
 const jwt = require('jsonwebtoken')
 const passport = require('passport')
+
+
 router.post('/addsport/:id',(req,res) => {
-const newDate = {}
-newDate.id = req.params.id
-newDate.height = parseFloat(req.body.height)
-newDate.weight = parseFloat(req.body.weight)
-newDate.sex = req.body.sex
-newDate.footDate = parseFloat(req.body.footDate)
-newDate.runDate = parseFloat(req.body.runDate)
-newDate.swimRhythmDate= parseFloat(req.body.swimRhythmDate)
-newDate.footRhythm= parseFloat(req.body.footRhythm)
-newDate.rnnhurt= parseFloat(req.body.rnnhurt)
-newDate.swimRhythmhurt= parseFloat(req.body.swimRhythmhurt)
+const newData = {}
+newData.id = req.params.id
+newData.height = parseFloat(req.body.height)
+newData.weight = parseFloat(req.body.weight)
+newData.sex = req.body.sex
+newData.footDate = parseFloat(req.body.footDate)
+newData.runDate = parseFloat(req.body.runDate)
+newData.swimRhythmDate= parseFloat(req.body.swimRhythmDate)
+newData.footRhythm= parseFloat(req.body.footRhythm)
+newData.rnnhurt= parseFloat(req.body.rnnhurt)
+newData.swimRhythmhurt= parseFloat(req.body.swimRhythmhurt)
 
 //添加运动信息
-new Sport(newDate).save().then((success) => {
+new Sport(newData).save().then((success) => {
     return res.json({status:200,data:success})
 })
 })

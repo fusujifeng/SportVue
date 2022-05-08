@@ -8,7 +8,7 @@
         <el-descriptions-item label="性别">{{myMessage.sex}}</el-descriptions-item>
         <el-descriptions-item label="手机号">{{myMessage.phone}}</el-descriptions-item>
         <el-descriptions-item label="用户名">{{myMessage.username}}</el-descriptions-item>
-        <el-descriptions-item label="注册时间">{{myMessage.date}}</el-descriptions-item>
+        <el-descriptions-item label="注册时间">{{myMessage.date.substring(0,10)}}</el-descriptions-item>
          <el-descriptions-item label="账号类型"><el-tag>{{myMessage.type}}</el-tag></el-descriptions-item>
       </el-descriptions>
     </el-card>

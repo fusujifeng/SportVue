@@ -5,14 +5,26 @@
      <el-card>
       <el-descriptions title="修改记录" border column="1">
 <!--        <el-descriptions-item label="姓名">{{logMessage.id}}</el-descriptions-item>-->
-        <el-descriptions-item label="日志">{{logMessage.log}}</el-descriptions-item>
-        <el-descriptions-item label="删除时间"><el-tag>{{logMessage.date}}</el-tag></el-descriptions-item>
+<!--        <el-descriptions-item label="日志">{{logMessage.log}}</el-descriptions-item>-->
+<!--        <el-descriptions-item label="删除时间"><el-tag>{{logMessage.date}}</el-tag></el-descriptions-item>-->
+
       </el-descriptions>
     </el-card>
+
+    <el-table :data="userlist">
+      <el-table-column laber="姓名" prop="tem">
+
+      </el-table-column>
+    </el-table>
     <button @click="handleClick2">handleclick2</button>
 
     <div>
       msg:{{logmsg}}
+    </div>
+
+
+    <div>
+      newlog:{{newlog}}
     </div>
   </div>
 </div>
@@ -27,8 +39,11 @@ export default {
       myMessage: {},
       logMessage:{},
       id: window.sessionStorage.getItem('id'),
+      newlog: window.sessionStorage.getItem('deletelog'),
+
       msg: "王杰",
-      logmsg:"杰哥"
+      logmsg:"杰哥",
+      userlist:[]
     }
   },
 
@@ -55,15 +70,23 @@ export default {
       this.$message.success('获取log成功')
       this.logmsg=this.logMessage.date
     },
-    handleClick2() {
-      this.getLog()
+    async testdemo1 (id) {
+      const { data: res } = await this.$http.get('/server/demo3/' +id)
+      if (res.status !== 200) return this.$message.error('获取信息失败')
+      console.log("testdemo1",res)
+      this.msg=res.msg
 
+    },
+    handleClick2() {
+      // this.getLog()
+      this.testdemo1()
     },
     demo(data) {
 
       this.msg = data;
       console.log(this.msg)
       console.log("this=" + this)
+
     }
 
 

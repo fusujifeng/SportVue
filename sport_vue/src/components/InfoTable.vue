@@ -33,7 +33,7 @@
                 </template>
             </el-table-column>
       </el-table>
-      <AllSummary v-if="dialog" :allDate="allDate" @return="dialog = false"></AllSummary>
+      <AllSummary v-if="dialog" :allData="allData" @return="dialog = false"></AllSummary>
     </el-card>
     <button @click="handleClick">clickxx</button>
   </div>
@@ -47,7 +47,7 @@ export default {
   },
   props: {
     infolist: [],
-    allDate: {}
+    allData: {}
   },
   data () {
     return {
@@ -60,7 +60,7 @@ export default {
       const { data: res } = await this.$http.get('/server/chart/mychart/' + id)
       if (res.status !== 200) return this.$message.error('获取信息失败')
       console.log(res)
-      this.allDate = res.myINfo
+      this.allData = res.myINfo
       this.dialog = true
     },
 
@@ -71,7 +71,17 @@ export default {
         cancelButtonText: '取消',
         type: 'warning'
       }).then(async () => {
+        //改
+        const { data: thenew } = await this.$http.get('/server/chart/mychart/' + id)
+
+
+        console.log("lookdata",thenew.myINfo.temperature)
+
+        window.sessionStorage.setItem("deletelog",JSON.stringify(thenew.myINfo.temperature))
+
+
         const { data: res } = await this.$http.delete('/server/chart/delete/' + id)
+
         if (res.status !== 200) {
           return this.$message({
             type: 'info',

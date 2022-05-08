@@ -28,6 +28,6 @@ const ChartsSchema = new Schema({
         type:Date,
         default: Date.now()
     }
-    
+
 })
 module.exports = Chart = mongoose.model('chart',ChartsSchema)
