@@ -9,6 +9,7 @@ import axios from 'axios'
 
 
 Vue.config.productionTip = false
+
 // 配置请求头
 axios.interceptors.request.use(config => {
   config.headers.Authorization = window.sessionStorage.getItem('token')
@@ -16,6 +17,7 @@ axios.interceptors.request.use(config => {
   // 每次请求的时候会带着请求头发送请求
   return config
 })
+
 axios.interceptors.response.use(config => {
   // NProgress.done()
   return config

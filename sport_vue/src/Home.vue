@@ -4,20 +4,21 @@
       <img src="../public/assets/img/avator.png" alt="">
       <h3>健康数据分析平台</h3>
       <el-button  type="danger" @click="loginOut">退出登录</el-button>
-      <el-menu
-        class="el-menu-vertical-demo"
-      >
-<!--下面是侧边栏-->
+
+<!--      侧边栏整体-->
+      <el-menu class="el-menu-vertical-demo" active-text-color="#ffd04b">
+<!--一级菜单 key:唯一id index：展开时不影响别的菜单-->
         <el-submenu  v-for="item in menu" :key="item.id" :index="item.id">
           <template slot="title">
-            <i class="el-icon-location"></i>
+            <i class="el-icon-success"></i>
             <span>{{item.name}}</span>
           </template>
 
-<!--子菜单-->
-          <el-menu-item-group>
-            <el-menu-item  v-for="i in item.children" :key="i.id" :index="i.id" @click="push(i.path)">{{i.name}}</el-menu-item>
-          </el-menu-item-group>
+<!--二级菜单-->
+          <el-menu-item  v-for="i in item.children" :key="i.id" :index="i.id" @click="push(i.path)">
+            <i class="el-icon-star-off"></i>
+            {{i.name}}
+          </el-menu-item>
         </el-submenu>
 
       </el-menu>
@@ -36,6 +37,9 @@
 
 <script>
 export default {
+  created() {
+    this.getMenuList()
+  },
   data () {
     return {
       menu: JSON.parse(window.sessionStorage.getItem('menu')),
@@ -52,7 +56,10 @@ export default {
       window.sessionStorage.clear()
       this.$router.push('/login')
       this.$message.success('已退出登录')
-    }
+    },
+    // async getMenuList(){
+    //   const {data :res}= await  this.$http.get("/server/user/login/")
+    // }
   }
 }
 </script>

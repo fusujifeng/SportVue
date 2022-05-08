@@ -57,8 +57,7 @@ const router = new VueRouter({
 
 //导航守卫，路由元信息，验证用户是否登录
 router.beforeEach((to, from, next) => {
-  // to 将要访问的地址
-  // from 从哪个路径跳转而来
+  // to 将要访问的地址,from 从哪个路径跳转而来
   // next 函数 放行  next()直接放行  next(./login) 跳转地址
   if (to.path === '/login' | to.path === '/register') return next()
   const tokenStr = window.sessionStorage.getItem('token')
