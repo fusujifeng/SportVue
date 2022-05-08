@@ -89,7 +89,7 @@
 </template>
 
 <script>
-import SugerView from '../../components/sugerview.vue'
+import SugerView from '../../components/littleChart/sugerview.vue'
 export default {
   components: {
     SugerView

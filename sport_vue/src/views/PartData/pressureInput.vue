@@ -103,7 +103,7 @@
 </template>
 
 <script>
-import PresureView from '../../components/PresurView.vue'
+import PresureView from '../../components/littleChart/PresurView.vue'
 export default {
   components: {
     PresureView

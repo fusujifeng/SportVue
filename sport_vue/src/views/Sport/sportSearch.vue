@@ -9,13 +9,13 @@
         <el-table-column prop="sex" label="性别"> </el-table-column>
         <el-table-column prop="footDate" label="慢走时间"> </el-table-column>
         <el-table-column prop="runDate" label="慢跑时间"> </el-table-column>
-        <el-table-column prop="swimRhythmDate" label="游泳时间"> </el-table-column>
+        <el-table-column prop="swimDate" label="游泳时间"> </el-table-column>
         <el-table-column prop="footRhythm" label="慢走心率"> </el-table-column>
         <el-table-column prop="runRhythm" label="慢跑心率"> </el-table-column>
-        <el-table-column prop="swimRhythmhurt" label="游泳心率"> </el-table-column>
+        <el-table-column prop="swimRhythm" label="游泳心率"> </el-table-column>
         <el-table-column label="操作">
           <template slot-scope="scope">
-          <el-button type="primary" size="mini" @click="show(scope.row._id)">查看</el-button>
+          <el-button type="primary" size="mini" @click="show(scope.row._id)"> 查看</el-button>
           <el-button type="danger" size="mini" @click="deleteConfirm(scope.row._id)">删除</el-button>
           </template>
         </el-table-column>
@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import sportView from '../../components/Sportview.vue'
+import sportView from '../../components/littleChart/Sportview.vue'
 export default {
   components: {
     sportView
@@ -80,4 +80,9 @@ export default {
 </script>
 
 <style>
+.el-button{
+  float:right;
+  margin-right: 30px;
+  /*width: 100px;*/
+}
 </style>

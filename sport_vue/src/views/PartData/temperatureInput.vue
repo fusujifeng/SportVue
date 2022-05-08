@@ -173,7 +173,7 @@
 </template>
 
 <script>
-import TemView from '../../components/temview.vue'
+import TemView from '../../components/littleChart/temview.vue'
 export default {
   components: {
     TemView

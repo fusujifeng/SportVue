@@ -73,7 +73,7 @@
 </template>
 
 <script>
-import Sportview from '../../components/Sportview.vue'
+import Sportview from '../../components/littleChart/Sportview.vue'
 import weather from "@/views/More/weather";
 export default {
   components: {

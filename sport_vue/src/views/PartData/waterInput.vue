@@ -84,7 +84,7 @@
 </template>
 
 <script>
-import WaterView from '../../components/waterview.vue'
+import WaterView from '../../components/littleChart/waterview.vue'
 export default {
   components: {
     WaterView
