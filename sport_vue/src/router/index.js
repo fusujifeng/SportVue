@@ -4,9 +4,9 @@ import Login from '../Login.vue'
 import Register from '../register.vue'
 import Home from '../Home.vue'
 import Mymessage from '../views/Mymessage/Mymessage.vue'
-import AllDataShow from '../views/AllData/AllDataShow.vue'
 import AdminUserSearch from '../views/AdminUser/AdminUserSearch.vue'
-import InfoList from '../views/AdminUser/UserInfo.vue'
+import InfoList from '../components/UserInfo.vue'
+import allDataInput from "@/views/AllData/AllDataInput";
 import AllDataSearch from '../views/AllData/AllDataSearch.vue'
 import temperatureInput from '../views/PartData/temperatureInput.vue'
 import temperatureSearch from "@/views/PartData/temperatureSearch";
@@ -19,13 +19,14 @@ import waterSearch from "@/views/PartData/waterSearch";
 
 
 
-import sportInput from "@/views/Sport/SportInput";
+import sportInput from "@/views/Sport/sportInput";
 import sportSearch from "@/views/Sport/sportSearch";
 import Edit from '../views/Mymessage/MymessageEdit.vue'
 // 添加日志功能
 import journal from "@/views/More/Journal";
 //地图功能
 import baiduMap from "@/views/More/baiduMap";
+import AllDataInput from "@/views/AllData/AllDataInput";
 
 Vue.use(VueRouter)
 
@@ -37,9 +38,10 @@ const router = new VueRouter({
       path: '/home',
       component: Home,
       children: [{ path: '/mymessage', component: Mymessage },
-        { path: '/alldatashow', component: AllDataShow },
+
         { path: '/userLidt', component: AdminUserSearch },
         { path: '/infoList', component: InfoList },
+        { path: '/alldatainput', component: AllDataInput },
         { path: '/alldatasearch', component: AllDataSearch },
 
         //八个小分支

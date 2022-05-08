@@ -159,7 +159,7 @@ router.post("/login", (req, res) => {
                                             {
                                                 id: "2-1",
                                                 name: "整体数据分析",
-                                                path: "/alldatashow",
+                                                path: "/alldatainput",
                                             },
                                             {
                                                 id: "2-2",
@@ -226,7 +226,7 @@ router.post("/login", (req, res) => {
                                             {
                                                 id: "4-2",
                                                 name: "运动数据查询",
-                                                path: "/sugersearch",
+                                                path: "/sportsearch",
                                             },
                                         ]
                                     },

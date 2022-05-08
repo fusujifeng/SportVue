@@ -75,7 +75,7 @@ router.post('/addpresure/:id',(req,res) => {
     const newData = {}
     newData.id = req.params.id
     newData.presure = req.body
-    new Presure(newDate).save().then(success => {
+    new Presure(newData).save().then(success => {
         return res.json({status:200,data:success})
     })
 })

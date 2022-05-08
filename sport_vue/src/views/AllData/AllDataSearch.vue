@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import infoTabel from '../../components/Info.vue'
+import infoTabel from '../../components/InfoTable.vue'
 export default {
   components: {
     infoTabel
