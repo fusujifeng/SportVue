@@ -45,16 +45,16 @@
           ></el-progress
         ></el-descriptions-item>
         <el-descriptions-item label="游泳计划时长"
-          >{{ mswimRhythmDate }}h</el-descriptions-item
+          >{{ mswimDate }}h</el-descriptions-item
         >
         <el-descriptions-item label="实际游泳时长"
-          ><el-tag>{{ sportDate.swimRhythmDate }}h</el-tag></el-descriptions-item
+          ><el-tag>{{ sportDate.swimDate }}h</el-tag></el-descriptions-item
         >
         <el-descriptions-item label="完成进度"
           ><el-progress
             type="circle"
             :percentage="
-              parseFloat((sportDate.swimRhythmDate / mswimRhythmDate).toFixed(2)) * 100
+              parseFloat((sportDate.swimDate / mswimDate).toFixed(2)) * 100
             "
           ></el-progress
         ></el-descriptions-item>
@@ -84,7 +84,7 @@ export default {
     return {
       mfootDate: window.sessionStorage.getItem('mfootDate'),
       mrunDate: window.sessionStorage.getItem('mrunDate'),
-      mswimRhythmDate: window.sessionStorage.getItem('mswimRhythmDate'),
+      mswimDate: window.sessionStorage.getItem('mswimDate'),
       msg: {},
       //显示/隐藏分析结果
       dialog: false
@@ -134,7 +134,7 @@ export default {
     msg.kal =
       parseFloat(this.sportDate.runDate) * 215 +
       parseFloat(this.sportDate.runDate) * 650 +
-      parseFloat(this.sportDate.swimRhythmDate) * 800
+      parseFloat(this.sportDate.swimDate) * 800
     this.msg = msg
   },
   mounted () {

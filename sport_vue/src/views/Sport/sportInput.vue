@@ -37,7 +37,7 @@
           <el-input v-model="form.rnnhurt"></el-input>
         </el-form-item>
         <el-form-item label="游泳时长(h)">
-          <el-input v-model="form.swimRhythmDate"></el-input>
+          <el-input v-model="form.swimDate"></el-input>
         </el-form-item>
         <el-form-item label="游泳心率(次/分)">
           <el-input v-model="form.swimRhythmhurt"></el-input>
@@ -61,7 +61,7 @@
       <el-input v-model="myform.mrunDate"></el-input>
     </el-form-item>
     <el-form-item label="游泳时长">
-      <el-input v-model="myform.mswimRhythmDate"></el-input>
+      <el-input v-model="myform.mswimDate"></el-input>
     </el-form-item>
   </el-form>
   <div slot="footer" class="dialog-footer">
@@ -111,7 +111,7 @@ export default {
     addPlan () {
       window.sessionStorage.setItem('mfootDate', this.myform.mfootDate)
       window.sessionStorage.setItem('mrunDate', this.myform.mrunDate)
-      window.sessionStorage.setItem('mswimRhythmDate', this.myform.mswimRhythmDate)
+      window.sessionStorage.setItem('mswimDate', this.myform.mswimDate)
       window.sessionStorage.setItem('plan', 'true')
       this.plantag = 0
       this.$message.success('定制计划成功')

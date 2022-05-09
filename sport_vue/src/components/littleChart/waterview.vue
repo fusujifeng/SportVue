@@ -10,13 +10,13 @@
         </el-descriptions-item>
         <el-descriptions-item label="单次饮水进度">
           <!-- 饮水环-element进度条 -->
-            <el-progress type="circle" :percentage="parseFloat((waterinfo.one/500).toFixed(2))*100"></el-progress>
-            <el-progress type="circle" :percentage="parseFloat((waterinfo.middle/375).toFixed(2))*100"></el-progress>
-            <el-progress type="circle" :percentage="parseFloat((waterinfo.last/375).toFixed(2))*100"></el-progress>
+            <el-progress type="circle" :percentage="Math.floor(parseFloat((waterinfo.one/500).toFixed(2))*100)"></el-progress>
+            <el-progress type="circle" :percentage="Math.floor(parseFloat((waterinfo.middle/375).toFixed(2))*100)"></el-progress>
+            <el-progress type="circle" :percentage="Math.floor(parseFloat((waterinfo.last/375).toFixed(2))*100)"></el-progress>
             </el-descriptions-item>
         <el-descriptions-item label="饮水进度">
             <template>
-            <el-progress type="circle" :percentage="parseFloat((msg.num/1250).toFixed(2))*100"></el-progress>
+            <el-progress type="circle" :percentage="Math.floor(parseFloat((msg.num/1250).toFixed(2))*100)"></el-progress>
             </template>
             </el-descriptions-item>
         <el-descriptions-item label="饮水分析结果">{{msg.watermsg}}</el-descriptions-item>

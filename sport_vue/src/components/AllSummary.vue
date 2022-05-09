@@ -22,7 +22,7 @@
             >{{item}}</el-descriptions-item
           >
           <el-descriptions-item label="血压分析结果">{{msg.bloodmsg}}</el-descriptions-item>
-          <el-descriptions-item Label="饮水进度"><el-progress type="circle" :percentage="parseFloat((msg.num/2200).toFixed(2))*100"></el-progress></el-descriptions-item>
+          <el-descriptions-item Label="饮水进度"><el-progress type="circle" :percentage="Math.floor(parseFloat((msg.num/2200).toFixed(2))*100)"></el-progress></el-descriptions-item>
           <el-descriptions-item label="饮水分析结果">{{msg.watermsg}}</el-descriptions-item>
         </el-descriptions>
       </el-card>
