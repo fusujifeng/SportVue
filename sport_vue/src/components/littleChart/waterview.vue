@@ -4,8 +4,7 @@
     <el-card class="msg">
       <el-descriptions title="数据分析" column = 1 >
         <el-descriptions-item label="饮水量数据">
-          <el-tag v-for="(item, i) in waterdata.water" :key="i"
-            >{{ item }}ml</el-tag
+          <el-tag v-for="(item, i) in waterdata.water" :key="i">{{ item }}ml</el-tag
           >
         </el-descriptions-item>
         <el-descriptions-item label="单次饮水进度">
