@@ -76,10 +76,12 @@ export default {
         const { data: thenew } = await this.$http.get('/server/chart/mychart/' + id)
 
 
-        console.log("lookdata",thenew.myINfo.temperature)
+        console.log("lookdata",thenew.myINfo)
 
         window.sessionStorage.setItem("deletelog",JSON.stringify(thenew.myINfo.temperature))
 
+        const { data: res2 } = await this.$http.get('/server/chart/savebeforedelete/' + id)
+        console.log("res2=",res2)
 
         const { data: res } = await this.$http.delete('/server/chart/delete/' + id)
 

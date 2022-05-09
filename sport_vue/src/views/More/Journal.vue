@@ -2,17 +2,17 @@
 <div>
   <div>msg:{{msg}}</div>
   <div class="message">
-     <el-card>
+<!--     <el-card>-->
       <el-descriptions title="修改记录" border column="1">
 <!--        <el-descriptions-item label="姓名">{{logMessage.id}}</el-descriptions-item>-->
 <!--        <el-descriptions-item label="日志">{{logMessage.log}}</el-descriptions-item>-->
 <!--        <el-descriptions-item label="删除时间"><el-tag>{{logMessage.date}}</el-tag></el-descriptions-item>-->
 
       </el-descriptions>
-    </el-card>
+<!--    </el-card>-->
 
     <el-table :data="userlist">
-      <el-table-column laber="姓名" prop="tem">
+      <el-table-column label="姓名" prop="tem">
 
       </el-table-column>
     </el-table>
@@ -48,12 +48,14 @@ export default {
   },
 
 
-  mounted() {
 
+  mounted() {
+    this.getUserList()
     let newlog=sessionStorage.getItem('deletelog')
 
     this.msg=newlog
   },
+
 
 
   methods: {
@@ -71,6 +73,13 @@ export default {
       this.logmsg=this.logMessage.date
     },
     async testdemo1 (id) {
+      const { data: res } = await this.$http.get('/server/demo3/' +id)
+      if (res.status !== 200) return this.$message.error('获取信息失败')
+      console.log("testdemo1",res)
+      this.msg=res.msg
+
+    },
+    async getUserList (id) {
       const { data: res } = await this.$http.get('/server/demo3/' +id)
       if (res.status !== 200) return this.$message.error('获取信息失败')
       console.log("testdemo1",res)
