@@ -2,6 +2,7 @@
 
 const express = require('express')
 const router = express.Router()
+
 const Chart = require('../models/Charts')
 const User = require('../models/User')
 const jwt = require('jsonwebtoken')
@@ -33,8 +34,10 @@ router.get('/mychart/:id',(req,res) => {
 })
 
 //用户端的用户本人整体数据查询（表）
+//此处id是session里的id
 router.get('/myinfo/:id',(req,res) => {
     Chart.find({id:req.params.id}).then((info)=>{
+
         return res.json({status:200,myINfo:info})
     })
 })

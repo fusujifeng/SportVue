@@ -73,14 +73,14 @@ export default {
       this.logmsg=this.logMessage.date
     },
     async testdemo1 (id) {
-      const { data: res } = await this.$http.get('/server/demo3/' +id)
+      const { data: res } = await this.$http.get('/server/more/demo3/' +id)
       if (res.status !== 200) return this.$message.error('获取信息失败')
       console.log("testdemo1",res)
       this.msg=res.msg
 
     },
     async getUserList (id) {
-      const { data: res } = await this.$http.get('/server/demo3/' +id)
+      const { data: res } = await this.$http.get('/server/more/demo3/' +id)
       if (res.status !== 200) return this.$message.error('获取信息失败')
       console.log("testdemo1",res)
       this.msg=res.msg

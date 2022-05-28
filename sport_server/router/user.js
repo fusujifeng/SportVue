@@ -57,7 +57,7 @@ router.post("/login", (req, res) => {
                                             {
                                                 id: "1-2",
                                                 name: "个人信息修改",
-                                                path: "/editmymsg",
+                                                path: "/mymessagedit",
                                             }
                                         ],
                                     },
@@ -68,32 +68,27 @@ router.post("/login", (req, res) => {
                                             {
                                                 id: "2-1",
                                                 name: "用户信息查询",
-                                                path: "/userLidt",
+                                                path: "/usercontrol",
+                                            },
+                                            {
+                                                id: "2-2",
+                                                name: "用户数据列表",
+                                                path: "/adminuserlist",
                                             },
                                         ],
                                     },
+
                                     {
                                         id: "3",
-                                        name: "用户数据管理",
-                                        children: [
-                                            {
-                                                id: "3-1",
-                                                name: "用户数据列表",
-                                                path: "/infoList",
-                                            },
-                                        ],
-                                    },
-                                    {
-                                        id: "4",
                                         name: "系统日志",
                                         children: [
                                             {
-                                                id: "4-1",
+                                                id: "3-1",
                                                 name: "修改记录",
                                                 path: "/journal",
                                             },
                                             {
-                                                id: "4-2",
+                                                id: "3-2",
                                                 name: "地图",
                                                 path: "/map",
                                             },
@@ -148,7 +143,7 @@ router.post("/login", (req, res) => {
                                             {
                                                 id: "1-2",
                                                 name: "个人信息修改",
-                                                path: "/editmymsg",
+                                                path: "/mymessagedit",
                                             }
                                         ],
                                     },
@@ -271,9 +266,7 @@ router.post("/login", (req, res) => {
 });
 
 router.post("/register", (req, res) => {
-    User.findOne({
-        username: req.body.username,
-    }).then((user) => {
+    User.findOne({username: req.body.username}).then((user) => {
         if (user) {
             return res.json({
                 msg: "此用户名已被注册",
@@ -295,9 +288,10 @@ router.post("/register", (req, res) => {
             bcrypt.hash(newUser.password, salt, (err, hash) => {
                 if (err) throw err;
                 newUser.password = hash;
-                newUser
-                    .save()
-                    .then((user) =>
+
+
+                //存储注册用户进数据库
+                newUser.save().then((user) =>
                         res.json({
                             user: user,
                             status: 200,

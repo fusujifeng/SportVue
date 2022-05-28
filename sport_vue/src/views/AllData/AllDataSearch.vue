@@ -2,7 +2,7 @@
 
 <template>
   <div>
-      <infoTabel :infolist="infolist" @getNew="getallinfo()"></infoTabel>
+      <infoTabel :infolist="infolist" @getNew="getAllInfo()"></infoTabel>
   </div>
 </template>
 
@@ -19,10 +19,10 @@ export default {
     }
   },
   created () {
-    this.getallinfo()
+    this.getAllInfo()
   },
   methods: {
-    async getallinfo () {
+    async getAllInfo () {
       const { data: res } = await this.$http.get('/server/chart/myinfo/' + this.id)
       if (res.status !== 200) return this.$message.error('获取列表失败')
       this.infolist = res.myINfo

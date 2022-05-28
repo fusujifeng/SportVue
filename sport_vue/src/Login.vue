@@ -103,9 +103,7 @@ export default {
       console.log("开始模拟");
       this.loginForm.username = res.user.username;
       this.loginForm.password = "123456";
-      this.$message.success(
-        `账号：${res.user.username}---密码:123456--数据已生成`
-      );
+      this.$message.success(`账号：${res.user.username}---密码:123456--数据已生成`);
     },
   },
 };

@@ -4,9 +4,9 @@ import Login from '../Login.vue'
 import Register from '../register.vue'
 import Home from '../Home.vue'
 import Mymessage from '../views/Mymessage/Mymessage.vue'
+import Mymessagedit from '../views/Mymessage/MymessageEdit'
 import AdminUserSearch from '../views/AdminUser/AdminUserSearch.vue'
-import InfoList from '../components/UserInfo.vue'
-import allDataInput from "@/views/AllData/AllDataInput";
+import AdminUserList from '../views/AdminUser/AdminUserList'
 import AllDataSearch from '../views/AllData/AllDataSearch.vue'
 import temperatureInput from '../views/PartData/temperatureInput.vue'
 import temperatureSearch from "@/views/PartData/temperatureSearch";
@@ -17,11 +17,8 @@ import presuresearch from '../views/PartData/pressureSearch.vue'
 import waterInput from "@/views/PartData/waterInput";
 import waterSearch from "@/views/PartData/waterSearch";
 
-
-
 import sportInput from "@/views/Sport/sportInput";
 import sportSearch from "@/views/Sport/sportSearch";
-import Edit from '../views/Mymessage/MymessageEdit.vue'
 // 添加日志功能
 import journal from "@/views/More/Journal";
 //地图功能
@@ -37,14 +34,20 @@ const router = new VueRouter({
     {
       path: '/home',
       component: Home,
-      children: [{ path: '/mymessage', component: Mymessage },
+      children: [
+        //个人信息管理
+        { path: '/mymessage', component: Mymessage },
+        { path: '/mymessagedit', component: Mymessagedit },
 
-        { path: '/userLidt', component: AdminUserSearch },
-        { path: '/infoList', component: InfoList },
+        //管理员用户数据管理
+        { path: '/usercontrol', component: AdminUserSearch },
+        { path: '/adminuserlist', component: AdminUserList },
+
+        //整体数据测绘
         { path: '/alldatainput', component: AllDataInput },
         { path: '/alldatasearch', component: AllDataSearch },
 
-        //八个小分支
+        //部分数据测绘--(八个小分支)
         { path: '/temperatureinput', component: temperatureInput },
         { path: '/temperaturesearch', component: temperatureSearch },
         { path: '/sugarinput', component: sugarInput },
@@ -54,11 +57,11 @@ const router = new VueRouter({
         { path: '/waterinput', component: waterInput },
         { path: '/watersearch', component: waterSearch },
 
-        //运动
+        //运动数据
         { path: '/sportinput', component: sportInput },
         { path: '/sportsearch', component: sportSearch },
 
-        { path: '/editmymsg', component: Edit },
+        //更多信息
         { path: '/journal', component: journal },
         { path: '/map', component: baiduMap }
       ]

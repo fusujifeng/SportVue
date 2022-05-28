@@ -26,7 +26,7 @@ app.use('/server/user',user)
 app.use('/server/chart',chart)
 app.use('/server/mydata',mydata)
 app.use('/server/sport',sport)
-app.use('/server',more)
+app.use('/server/more',more)
 
 require('./config/passportbulid')(passport)
 const port = process.env.PORT || 3800;

@@ -94,7 +94,7 @@ export default {
     const weight = parseFloat(this.sportDate.weight)
     const height = parseFloat(this.sportDate.height)
     const msg = {}
-    msg.BMI = weight / (height * height)
+    msg.BMI = weight / (height * height*0.0001)
     if (msg.BMI > 18.5 && msg.BMI < 23.9) {
       msg.bmimsg = 'BMI值处于正常水平，请保持良好心态，积极锻炼哦！'
     }
