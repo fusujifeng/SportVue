@@ -29,7 +29,7 @@ export default {
   },
   methods: {
     async getMymessage () {
-      const { data: res } = await this.$http.get('/server/user/mymsg/' + this.id)
+      const { data: res } = await this.$http.get('/server/user/mymessagesearch/' + this.id)
       if (res.status !== 200) return this.$message.error('获取信息失败')
       this.myMessage = res.myinfo
       this.$message.success('获取个人信息成功')

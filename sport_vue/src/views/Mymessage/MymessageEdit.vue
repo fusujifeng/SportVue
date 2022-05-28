@@ -38,22 +38,20 @@ export default {
     this.getInfo()
   },
   methods: {
+    //先获取当前数据 并渲染在页面上
     async getInfo () {
-      const { data: res } = await this.$http.get('/server/user/mymsg/' + this.id)
-
-      //   getInfo () {
-      //   this.$http.get('/server/user/mymsg/' + this.id)
-            // .then(data=>{
-          // console.log(data);
-      // }
-      // )
+      const { data: res } = await this.$http.get('/server/user/mymessagesearch/' + this.id)
       if (res.status !== 200) return this.$message.error('获取信息失败')
-
       this.editForm = res.myinfo
     },
+    //再根据表单填写的值修改
     async editConfirm () {
       const { data: res } = await this.$http.post('/server/user/edit/', this.editForm)
-      if (res.status === 200) return this.$message.success('修改成功'); this.getInfo()
+      if (res.status === 200){
+        return this.$message.success('修改成功');
+        //再次挂载渲染新的值
+        this.getInfo()
+      }
     }
   }
 }
