@@ -327,19 +327,16 @@ router.get("/mymessagesearch/:id", (req, res) => {
 });
 
 //通用--个人信息修改
-router.post('/edit/', (req, res) => {
+router.post('/mymessage-edit/', (req, res) => {
     User.findOneAndUpdate({_id: req.body._id}, {$set: req.body}, {new: true}).then(() => {
         return res.json({status: 200})
     })
 })
 
 //管理员--用户管理
+//authenticate验证token，有token才能访问
 router.get(
-    "/allUser/:id",
-    //authenticate验证token，有token才能访问
-    passport.authenticate("jwt", {
-        session: false,
-    }),
+    "/allUser/:id", passport.authenticate("jwt", {session: false,}),
     (req, res) => {
         User.findOne({
             _id: req.params.id,

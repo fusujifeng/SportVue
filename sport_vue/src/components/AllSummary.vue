@@ -1,7 +1,7 @@
 
 
 <template>
-  <div class="wrapp_box">
+  <div class="wrap_box">
     <div class="show">
       <el-card id="main1"></el-card>
       <el-card id="main2"></el-card>
@@ -284,7 +284,7 @@ export default {
 </script>
 
 <style scoped>
-.wrapp_box {
+.wrap_box {
   width: 100%;
   height: 100%;
   display: flex;

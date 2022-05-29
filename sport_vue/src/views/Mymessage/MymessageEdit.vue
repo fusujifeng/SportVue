@@ -46,7 +46,7 @@ export default {
     },
     //再根据表单填写的值修改
     async editConfirm () {
-      const { data: res } = await this.$http.post('/server/user/edit/', this.editForm)
+      const { data: res } = await this.$http.post('/server/user/mymessage-edit/', this.editForm)
       if (res.status === 200){
         return this.$message.success('修改成功');
         //再次挂载渲染新的值

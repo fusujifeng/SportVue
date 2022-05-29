@@ -133,8 +133,7 @@ export default {
     // 立即提交按钮
     async addConfirm () {
       const { data: res } = await this.$http.post(
-        '/server/chart/addcharData/' + this.id,
-        this.allInfo
+        '/server/chart/addchartData/' + this.id, this.allInfo
       )
       if (res.status !== 200) return this.$message.error('提交数据失败')
       this.allData = res.data

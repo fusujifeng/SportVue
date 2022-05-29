@@ -12,7 +12,7 @@ const Log = require("../models/Log")
 
 
 //整体数据测绘-数据录入与测绘
-router.post('/addcharData/:id',(req,res) => {
+router.post('/addchartData/:id',(req,res) => {
     const newdata = {}
     newdata.temperature = req.body.temperature
     newdata.bloodSuger = req.body.bloodSuger
@@ -38,7 +38,10 @@ router.get('/mychart/:id',(req,res) => {
 router.get('/myinfo/:id',(req,res) => {
     Chart.find({id:req.params.id}).then((info)=>{
 
-        return res.json({status:200,myINfo:info})
+        return res.json({
+            status:200,
+            myINfo:info
+        })
     })
 })
 
@@ -47,38 +50,21 @@ router.get('/myinfo/:id',(req,res) => {
 //管理端的所有用户整体数据查询（表）
 router.get('/allInfo',(req,res) => {
     Chart.find().then((info)=>{
-        return res.json({status:200,myINfo:info})
+        return res.json({
+            status:200,
+            myINfo:info
+        })
     })
 })
 
-//先存再删
-router.get('/savebeforedelete/:id',(req,res) => {
-    Chart.find({_id:req.params.id}).then((info)=>{
-            new Log(info).save().then((info)=> {
-                return res.json({status: 200, myINfo: info})
-            })
-    })
-})
 
-// Chart.findOne({_id:req.params.id}).then((info)=>{
-//     return res.json({status:200,myINfo:info})
-// })
 
 router.delete('/delete/:id',(req,res) => {
-// 先存再删
-//     const newData2 = {}
-//     console.log(res.params)
-    // newData2.temperature = res.params.temperature
-    //
-    // console.log("tem"+newData2.temperature)
-    // newData2.log = "删除列表"
-    // new Log(newData2).save().then(success => {
-    //     return res.json({status:200,data:success})
-    //
-    // })
-    //再删
     Chart.deleteOne({_id:req.params.id}).then((succcess) => {
-        return res.json({status:200,msg:'success'})
+        return res.json({
+            status:200,
+            msg:'success'
+        })
     })
 
 })
