@@ -58,6 +58,7 @@ export default {
     }
   },
   methods: {
+    //_id指的那一行元素
     async showchart(_id) {
       const {data: res} = await this.$http.get('/server/chart/mychart/' + _id)
       if (res.status !== 200) return this.$message.error('获取信息失败')
@@ -85,23 +86,16 @@ export default {
           type: 'success',
           message: '删除成功!'
         })
-        this.$emit('getNew')
-        // 删除日志
-        this.$emit('deletelog', this.message)
       })
     },
-    handleClick() {
-      this.$bus.$emit("deletelog", this.message)
-      console.log("click1" + this.message)
 
-      sessionStorage.setItem("deletelog", this.message);
 
     }
   }
 }
 </script>
 
-<style dcoped>
+<style scoped>
 .el-tag {
   margin: 0 2px;
 }
