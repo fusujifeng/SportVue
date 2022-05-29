@@ -58,8 +58,8 @@ export default {
     }
   },
   methods: {
-    async showchart(id) {
-      const {data: res} = await this.$http.get('/server/chart/mychart/' + id)
+    async showchart(_id) {
+      const {data: res} = await this.$http.get('/server/chart/mychart/' + _id)
       if (res.status !== 200) return this.$message.error('获取信息失败')
       console.log(res)
       this.allData = res.myINfo
@@ -67,13 +67,13 @@ export default {
     },
 
 
-    deleteConfirm(id) {
+    deleteConfirm(_id) {
       this.$confirm('此操作将永久删除该信息, 是否继续?', '提示', {
         confirmButtonText: '确定',
         cancelButtonText: '取消',
         type: 'warning'
       }).then(async () => {
-        const {data: res} = await this.$http.delete('/server/chart/delete/' + id)
+        const {data: res} = await this.$http.delete('/server/chart/delete/' + _id)
 
         if (res.status !== 200) {
           return this.$message({
