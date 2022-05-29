@@ -86,9 +86,18 @@ export default {
           type: 'success',
           message: '删除成功!'
         })
+        this.$emit('getNew')
+        // 删除日志
+        this.$emit('deletelog', this.message)
       })
     },
+    handleClick() {
+      this.$bus.$emit("deletelog", this.message)
+      console.log("click1" + this.message)
 
+      sessionStorage.setItem("deletelog", this.message);
+
+    }
   }
 }
 </script>
