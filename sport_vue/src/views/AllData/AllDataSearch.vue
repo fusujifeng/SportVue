@@ -23,7 +23,7 @@ export default {
   },
   methods: {
     async getAllInfo () {
-      const { data: res } = await this.$http.get('/server/chart/myinfo/' + this.id)
+      const { data: res } = await this.$http.get('/server/chart/only-myinfo/' + this.id)
       if (res.status !== 200) return this.$message.error('获取列表失败')
       this.infolist = res.myINfo
     }

@@ -29,15 +29,17 @@ router.post('/addchartData/:id',(req,res) => {
 //点击查看按钮后的整体图表
 router.get('/mychart/:id',(req,res) => {
     Chart.findOne({_id:req.params.id}).then((info)=>{
-        return res.json({status:200,myINfo:info})
+        return res.json(
+            {status:200,
+             myINfo:info
+            })
     })
 })
 
 //用户端的用户本人整体数据查询（表）
 //此处id是session里的id
-router.get('/myinfo/:id',(req,res) => {
+router.get('/only-myinfo/:id',(req,res) => {
     Chart.find({id:req.params.id}).then((info)=>{
-
         return res.json({
             status:200,
             myINfo:info

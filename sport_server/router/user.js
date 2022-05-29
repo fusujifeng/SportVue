@@ -327,6 +327,7 @@ router.get("/mymessagesearch/:id", (req, res) => {
 });
 
 //通用--个人信息修改
+//$Set是mongodb中替换内容的方法。new：true 是否返回一个新的信息
 router.post('/mymessage-edit/', (req, res) => {
     User.findOneAndUpdate({_id: req.body._id}, {$set: req.body}, {new: true}).then(() => {
         return res.json({status: 200})

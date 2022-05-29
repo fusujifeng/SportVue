@@ -1,5 +1,3 @@
-
-
 <template>
   <div class="wrap_box">
     <div class="show">
@@ -9,21 +7,34 @@
     </div>
     <div class="msg">
       <el-card
-        ><el-descriptions title="数据分析" border column=1>
-          <el-descriptions-item label="体温数据分析" v-for="item in msg.tem" :key="item"
-            >{{item}}</el-descriptions-item
-          >
-          <el-descriptions-item label="体温分析结果">{{msg.temmsg}}</el-descriptions-item>
-          <el-descriptions-item label="血糖数据分析" v-for="item in msg.suger" :key="item"
-            >{{item}}</el-descriptions-item
-          >
-           <el-descriptions-item label="血糖分析结果">{{msg.sugermsg}}</el-descriptions-item>
-            <el-descriptions-item label="血压数据分析" v-for="item in msg.blood" :key="item"
-            >{{item}}</el-descriptions-item
-          >
-          <el-descriptions-item label="血压分析结果">{{msg.bloodmsg}}</el-descriptions-item>
-          <el-descriptions-item Label="饮水进度"><el-progress type="circle" :percentage="Math.floor(parseFloat((msg.num/2200).toFixed(2))*100)"></el-progress></el-descriptions-item>
-          <el-descriptions-item label="饮水分析结果">{{msg.watermsg}}</el-descriptions-item>
+      >
+        <el-descriptions title="数据分析" border column=1>
+          <el-descriptions-item label="体温数据分析" v-for="item in msg.tem" :key="item">
+            {{ item }}
+          </el-descriptions-item>
+          <el-descriptions-item label="体温分析结果">{{ msg.temmsg }}</el-descriptions-item>
+          <el-descriptions-item label="血糖数据分析" v-for="item in msg.suger" :key="item">
+            {{ item }}
+          </el-descriptions-item>
+          <el-descriptions-item label="血糖分析结果">{{ msg.sugermsg }}</el-descriptions-item>
+          <el-descriptions-item label="血压数据分析" v-for="item in msg.blood" :key="item">
+            {{ item }}
+          </el-descriptions-item>
+
+          <el-descriptions-item label="血压分析结果">
+            {{ msg.bloodmsg }}
+          </el-descriptions-item>
+
+          <el-descriptions-item Label="饮水进度">
+            <el-progress type="circle"
+                         :percentage="Math.floor(parseFloat((msg.num/2200).toFixed(2))*100)">
+            </el-progress>
+          </el-descriptions-item>
+
+          <el-descriptions-item label="饮水分析结果">
+            {{ msg.watermsg }}
+          </el-descriptions-item>
+          
         </el-descriptions>
       </el-card>
       <el-button type="primary" @click="returns">返回</el-button>
@@ -33,17 +44,18 @@
 
 <script>
 import * as echarts from 'echarts'
+
 export default {
   props: {
     // 获取父级传过来的值
     allData: {}
   },
-  data () {
+  data() {
     return {
       msg: {}
     }
   },
-  mounted () {
+  mounted() {
     // 调用
     this.opetions1()
     this.opetions2()
@@ -52,7 +64,7 @@ export default {
   },
   methods: {
     // 对数据进行封装
-    opetions1 () {
+    opetions1() {
       var chartDom = document.getElementById('main1')
       var myChart = echarts.init(chartDom)
       var option
@@ -84,7 +96,7 @@ export default {
       }
       option && myChart.setOption(option)
     },
-    opetions2 () {
+    opetions2() {
       var chartDom = document.getElementById('main2')
       var myChart = echarts.init(chartDom)
       var option
@@ -120,7 +132,7 @@ export default {
 
       option && myChart.setOption(option)
     },
-    opetions3 () {
+    opetions3() {
       var chartDom = document.getElementById('main3')
       var myChart = echarts.init(chartDom)
       var option
@@ -217,11 +229,11 @@ export default {
       option && myChart.setOption(option)
     },
     // 子组件回应父组件
-    returns () {
+    returns() {
       this.$emit('return')
     },
     // 数据分析函数
-    analyse () {
+    analyse() {
       const msg = {
         tem: [],
         temmsg: '',
@@ -290,6 +302,7 @@ export default {
   display: flex;
   justify-content: space-between;
 }
+
 .show {
   width: 1000px;
   height: 100%;
@@ -297,21 +310,25 @@ export default {
   flex-direction: column;
   justify-content: center;
 }
+
 .show .el-card {
   height: 300px;
   margin: 20px 10px;
   border-radius: 15px;
 }
+
 .msg {
-  width:600px;
+  width: 600px;
   height: 100%;
   margin-right: 40px;
   position: relative;
   margin-left: 50px;
 }
-.msg .el-card{
-    width: 100%;
+
+.msg .el-card {
+  width: 100%;
 }
+
 .msg .el-button {
   position: absolute;
   bottom: 0px;
