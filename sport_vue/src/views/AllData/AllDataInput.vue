@@ -110,7 +110,7 @@
   </div>
 </template>
 <script>
-import Show from '../../components/AllSummary.vue'
+import Show from '../../components/AllEcharts.vue'
 export default {
   components: {
     Show

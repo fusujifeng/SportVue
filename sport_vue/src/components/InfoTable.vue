@@ -30,23 +30,23 @@
         </el-table-column>
         <el-table-column label="操作" width="180px">
           <template slot-scope="scope">
-            <el-button type="primary" size="mini" @click="showchar(scope.row._id)">查看</el-button>
+            <el-button type="primary" size="mini" @click="showchart(scope.row._id)">查看</el-button>
             <el-button type="danger" size="mini" @click="deleteConfirm(scope.row._id)">删除</el-button>
           </template>
         </el-table-column>
       </el-table>
-      <AllSummary v-if="dialog" :allData="allData" @return="dialog = false"></AllSummary>
+      <AllEcharts v-if="dialog" :allData="allData" @return="dialog = false"></AllEcharts>
     </el-card>
     <button @click="handleClick">clickxx</button>
   </div>
 </template>
 
 <script>
-import AllSummary from './AllSummary.vue'
+import AllEcharts from './AllEcharts.vue'
 
 export default {
   components: {
-    AllSummary
+    AllEcharts
   },
   props: {
     infolist: [],
@@ -58,7 +58,7 @@ export default {
     }
   },
   methods: {
-    async showchar(id) {
+    async showchart(id) {
       const {data: res} = await this.$http.get('/server/chart/mychart/' + id)
       if (res.status !== 200) return this.$message.error('获取信息失败')
       console.log(res)
@@ -66,7 +66,7 @@ export default {
       this.dialog = true
     },
 
-    
+
     deleteConfirm(id) {
       this.$confirm('此操作将永久删除该信息, 是否继续?', '提示', {
         confirmButtonText: '确定',
