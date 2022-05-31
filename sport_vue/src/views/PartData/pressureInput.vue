@@ -126,8 +126,7 @@ export default {
         )
       }
       const { data: res } = await this.$http.post(
-        '/server/mydata/addpresure/' + this.id,
-        this.presure
+        '/server/mydata/addpresure/' + this.id, this.presure
       )
       if (res.status !== 200) return this.$message.error('信息提交失败')
       console.log(res)

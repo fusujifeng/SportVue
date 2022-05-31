@@ -71,6 +71,7 @@ router.delete('/deletesug/:id',(req,res) => {
     })
 })
 
+//填写血压数据
 router.post('/addpresure/:id',(req,res) => {
     const newData = {}
     newData.id = req.params.id
