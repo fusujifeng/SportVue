@@ -122,7 +122,8 @@ export default {
         temperature: [],
         bloodSuger: [],
         bloodPressure: [],
-        water: []
+        water: [],
+        username:""
       },
       id: window.sessionStorage.getItem('id'),
       dialogVisible: false,
@@ -132,6 +133,8 @@ export default {
   methods: {
     // 立即提交按钮
     async addConfirm () {
+      var newname=window.sessionStorage.getItem("username")
+      this.$set(this.allInfo,"username",newname)
       const { data: res } = await this.$http.post(
         '/server/chart/addchartData/' + this.id, this.allInfo
       )

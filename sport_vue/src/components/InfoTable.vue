@@ -3,7 +3,16 @@
   <div>
     <el-card>
       <el-table :data="infolist" style="width: 100%" border v-if="!dialog">
-        <el-table-column  label="日期" prop="date"></el-table-column>
+        <el-table-column label="名字">
+          <template slot-scope="scope">
+            <span style="margin-left: 10px">{{ scope.row.username}}</span>
+          </template>
+        </el-table-column>
+        <el-table-column label="日期">
+          <template slot-scope="scope">
+            <span style="margin-left: 10px">{{ scope.row.date.substring(0,10)}}</span>
+          </template>
+        </el-table-column>
         <el-table-column label="体温">
           <template slot-scope="scope">
             <el-tag v-for="(item,i) in scope.row.temperature" :key="i" type="danger" size="mini">{{ item + '度' }}

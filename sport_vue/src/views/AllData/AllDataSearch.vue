@@ -26,6 +26,7 @@ export default {
       const { data: res } = await this.$http.get('/server/chart/only-myinfo/' + this.id)
       if (res.status !== 200) return this.$message.error('获取列表失败')
       this.infolist = res.myINfo
+      console.log("w s myinf",this.infolist)
     }
   }
 }

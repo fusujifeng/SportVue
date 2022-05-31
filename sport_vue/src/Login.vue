@@ -89,7 +89,9 @@ export default {
       window.sessionStorage.setItem("type", res.user.type);
       window.sessionStorage.setItem("menu", JSON.stringify(res.menu));
       window.sessionStorage.setItem("id", res.user._id);
-      this.$router.push("/home");
+      window.sessionStorage.setItem("username", res.user.username);
+
+        this.$router.push("/home");
       this.$message.success("登录成功");
       })
     },
