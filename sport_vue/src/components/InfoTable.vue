@@ -4,9 +4,9 @@
 
     <el-input v-model="selectVal" type="text" placeholder="请输入内容" style="width:200px"></el-input>
 
-    <el-button type="primary" icon="el-icon-search" @click="queryData">搜索</el-button>
-    <el-button type="danger" icon="el-icon-delete" circle @click="reset"></el-button>
 
+    <el-button type="primary" icon="el-icon-search" @click="queryData">搜索</el-button>
+    <el-button type="success" round @click="reset" >取消搜索</el-button>
     <el-button type="primary">导出excel<i class="el-icon-upload el-icon--right"></i></el-button>
     <el-card>
       <el-table :data="infolist" style="width: 100%" border v-if="!dialog">
