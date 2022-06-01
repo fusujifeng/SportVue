@@ -24,6 +24,8 @@ import journal from "@/views/More/Journal";
 //地图功能
 import baiduMap from "@/views/More/baiduMap";
 import AllDataInput from "@/views/AllData/AllDataInput";
+//excel功能
+import TablePage from "@/views/TablePage";
 
 Vue.use(VueRouter)
 
@@ -42,6 +44,8 @@ const router = new VueRouter({
         //管理员用户数据管理
         { path: '/usercontrol', component: AdminUserSearch },
         { path: '/adminuserlist', component: AdminUserList },
+        { path: '/tablepage', component: TablePage },
+
 
         //整体数据测绘
         { path: '/alldatainput', component: AllDataInput },

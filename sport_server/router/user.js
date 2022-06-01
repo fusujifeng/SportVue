@@ -94,6 +94,18 @@ router.post("/login", (req, res) => {
                                                 },
                                             ],
                                         },
+                                        {
+                                            id: "4",
+                                            name: "excel表单",
+                                            children: [
+                                                {
+                                                    id: "4-1",
+                                                    name: "excel表单",
+                                                    path: "/tablepage",
+                                                },
+
+                                            ],
+                                        },
                                     ],
                                 });
                             }

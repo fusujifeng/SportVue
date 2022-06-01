@@ -11,8 +11,11 @@
     "core-js": "^3.6.5",
     "echarts": "^4.6.0",
     "element-ui": "^2.4.5",
+    "file-saver": "^2.0.5",
+    "script-loader": "^0.7.2",
     "vue": "^2.6.11",
-    "vue-router": "^3.2.0"
+    "vue-router": "^3.2.0",
+    "xlsx": "^0.18.5"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.13",

@@ -52,7 +52,7 @@
         </el-form-item>
       </el-form>
     </el-card>
-  <el-dialog title="运动计划定制" :visible.sync="dialogFormVisible">
+  <el-dialog title="运动计划定制" :visible.sync="dialogFormVisible" append-to-body>
   <el-form :model="form">
     <el-form-item label="慢走时长">
       <el-input v-model="myform.mfootDate"></el-input>
