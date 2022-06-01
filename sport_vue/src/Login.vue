@@ -5,7 +5,7 @@
         <div>
           <img src="../public/assets/img/sunshine.jpg" alt=""/>
         </div>
-        <h3>健康数据分析平台</h3>
+        <h3>运动健康数据可视化平台</h3>
         <el-form :model="loginForm" :rules="loginRules" ref="ruleForm">
           <el-form-item prop="username">
             <el-input
@@ -19,7 +19,7 @@
               v-model="loginForm.password"
               placeholder="请输入密码"
               prefix-icon="el-icon-view"
-              type="password"
+              show-password
             ></el-input>
           </el-form-item>
           <el-form-item>

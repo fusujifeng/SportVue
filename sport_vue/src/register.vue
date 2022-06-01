@@ -21,13 +21,15 @@
         <el-form-item label="用户名">
           <el-input v-model="registrerForm.username"></el-input>
         </el-form-item>
-        <el-form-item label="密码">
-          <el-input v-model="registrerForm.password"></el-input>
+        <el-form-item label="密码" >
+          <el-input v-model="registrerForm.password" show-password></el-input>
         </el-form-item>
-        <el-form-item label="密码">
+        <el-form-item label="用户类型">
            <el-radio-group v-model="registrerForm.type">
             <el-radio label="用户" border></el-radio>
-            <el-radio label="管理员" border></el-radio>
+            <el-radio label="管理员" border ></el-radio>
+             <el-input v-model="registrerForm.key" v-if="this.registrerForm.type==='管理员'" placeholder="请输入序列号"></el-input>
+
           </el-radio-group>
         </el-form-item>
         <el-form-item label="操作">
@@ -42,6 +44,7 @@
 export default {
   data () {
     return {
+      key:'',
       registrerForm: {
         name: '',
         age: '',
@@ -58,6 +61,11 @@ export default {
       this.$router.push('/login')
     },
     async registerConfirm () {
+      if(this.registrerForm.type=="管理员"&&this.key!==123456){
+        this.$message.error('序列号输入错误!')
+        console.log(this.key)
+        return
+      }
       const { data: res } = await this.$http.post('/server/user/register/', this.registrerForm)
       if (res.status === 201) return this.$message.info('用户名已被注册')
       if (res.status === 200) {
