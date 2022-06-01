@@ -54,8 +54,12 @@ export default {
     // 退出时清空session
     loginOut () {
       window.sessionStorage.clear()
+      // window.L2Dwidget=''
+      location.reload()
       this.$router.push('/login')
       this.$message.success('已退出登录')
+
+
     },
     // async getMenuList(){
     //   const {data :res}= await  this.$http.get("/server/user/login/")

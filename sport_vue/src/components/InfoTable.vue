@@ -6,7 +6,7 @@
 
 
     <el-button type="primary" icon="el-icon-search" @click="queryData">搜索</el-button>
-    <el-button type="success" round @click="reset" >取消搜索</el-button>
+    <el-button type="success" round @click="reset" >显示全部</el-button>
     <el-button type="primary" @click="exportExcel">导出excel<i class="el-icon-upload el-icon--right"></i></el-button>
     <el-card>
       <el-table :data="infolist" id="selectTable" style="width: 100%" border v-if="!dialog">
@@ -74,8 +74,8 @@ export default {
 
       input: '',
       selectVal: '',
-      defaultinfolist:[],
-      orgListnew:[],
+      defaultinfolist: [],
+      orgListnew: [],
       //全部的数据列表
 
 
@@ -98,23 +98,23 @@ export default {
     queryData() {
 
       //搜索
-      console.log("thisinfolist",this.infolist)
+      console.log("thisinfolist", this.infolist)
       let list = this.infolist.filter(item => item.username.indexOf(this.selectVal) >= 0);
       this.orgListnew = list;
-      console.log("newlist:",this.orgListnew)
+      console.log("newlist:", this.orgListnew)
 
 
-      this.defaultinfolist=this.infolist;
-      this.infolist=list;
+      this.defaultinfolist = this.infolist;
+      this.infolist = list;
     },
     reset() {
-      this.infolist=this.defaultinfolist,
-      this.selectVal=''
+      this.infolist = this.defaultinfolist,
+        this.selectVal = ''
     },
     exportExcel() {
-      htmlToExcel.getExcel('#selectTable','导出的自定义标题')
+      htmlToExcel.getExcel('#selectTable', '导出的自定义标题')
     },
-    },
+
 
     deleteConfirm(_id) {
       this.$confirm('此操作将永久删除该信息, 是否继续?', '提示', {
@@ -140,7 +140,7 @@ export default {
       })
     },
   }
-
+}
 </script>
 
 <style scoped>
