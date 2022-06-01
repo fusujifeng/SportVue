@@ -1,16 +1,32 @@
 <template>
   <!-- 管理员--用户数据列表 -->
   <div>
+    <div id="app">
+      <!-- 搜索机构列表 -->
+      <div class="org">
+
+        <div v-for="(item,index) in orgList" :key="index">
+          {{ item }}
+        </div>
+
+      </div>
+    </div>
+
+    <el-input v-model="selectVal" type="text" placeholder="请输入内容" style="width:200px"></el-input>
+    <el-button type="primary" icon="el-icon-search" @click="queryData">搜索</el-button>
+    <el-button type="danger" icon="el-icon-delete" circle @click="reset"></el-button>
+
+    <el-button type="primary">导出excel<i class="el-icon-upload el-icon--right"></i></el-button>
     <el-card>
       <el-table :data="infolist" style="width: 100%" border v-if="!dialog">
         <el-table-column label="名字">
           <template slot-scope="scope">
-            <span style="margin-left: 10px">{{ scope.row.username}}</span>
+            <span style="margin-left: 10px">{{ scope.row.username }}</span>
           </template>
         </el-table-column>
         <el-table-column label="日期">
           <template slot-scope="scope">
-            <span style="margin-left: 10px">{{ scope.row.date.substring(0,10)}}</span>
+            <span style="margin-left: 10px">{{ scope.row.date.substring(0, 10) }}</span>
           </template>
         </el-table-column>
         <el-table-column label="体温">
@@ -64,8 +80,35 @@ export default {
   data() {
     return {
       dialog: false,
+
+      input: '',
+      selectVal: '',
+      orgList: [
+        '江苏银行',
+        '江苏农业银行',
+        '上海银行',
+        '苏州银行',
+        '南京银行',
+        '上海银行贷款部'
+      ],
+      //全部的数据列表
+      normal: [
+        '江苏银行',
+        '江苏农业银行',
+        '上海银行',
+        '苏州银行',
+        '南京银行',
+        '上海银行贷款部'
+      ],
+
+
     }
   },
+  mounted() {
+    console.log(this.infolist)
+  },
+
+
   methods: {
     //_id指的那一行元素
     async showchart(_id) {
@@ -75,7 +118,19 @@ export default {
       this.allData = res.myINfo
       this.dialog = true
     },
-
+    queryData() {
+      //并没有输入关键字时，就不要再搜索了
+      if (this.selectVal === '' || this.selectVal == null) {
+        this.orgList = JSON.parse(JSON.stringify(this.orgList));
+        return;
+      }
+      //搜索
+      let list = this.orgList.filter(item => item.indexOf(this.selectVal) >= 0);
+      this.orgList = list;
+    },
+    reset() {
+      this.orgList = JSON.parse(JSON.stringify(this.normal))
+    },
 
     deleteConfirm(_id) {
       this.$confirm('此操作将永久删除该信息, 是否继续?', '提示', {
