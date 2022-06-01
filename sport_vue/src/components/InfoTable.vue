@@ -53,7 +53,6 @@
       </el-table>
       <AllEcharts v-if="dialog" :allData="allData" @return="dialog = false"></AllEcharts>
     </el-card>
-    <button @click="handleClick">clickxx</button>
   </div>
 </template>
 
@@ -108,8 +107,8 @@ export default {
       this.infolist=list;
     },
     reset() {
-      this.orgList = JSON.parse(JSON.stringify(this.normal))
-      this.infolist=this.defaultinfolist
+      this.infolist=this.defaultinfolist,
+      this.selectVal=''
     },
 
     deleteConfirm(_id) {
@@ -135,13 +134,6 @@ export default {
         this.$emit('deletelog', this.message)
       })
     },
-    handleClick() {
-      this.$bus.$emit("deletelog", this.message)
-      console.log("click1" + this.message)
-
-      sessionStorage.setItem("deletelog", this.message);
-
-    }
   }
 }
 </script>
