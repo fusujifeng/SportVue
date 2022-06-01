@@ -1,13 +1,12 @@
 <template>
   <!-- 管理员--用户数据列表 -->
   <div>
-
+<div class="search" v-if="this.searchshow==='管理员'">
     <el-input v-model="selectVal" type="text" placeholder="请输入内容" style="width:200px"></el-input>
-
-
     <el-button type="primary" icon="el-icon-search" @click="queryData">搜索</el-button>
     <el-button type="success" round @click="reset" >显示全部</el-button>
     <el-button type="primary" @click="exportExcel">导出excel<i class="el-icon-upload el-icon--right"></i></el-button>
+</div>
     <el-card>
       <el-table :data="infolist" id="selectTable" style="width: 100%" border v-if="!dialog">
         <el-table-column label="username">
@@ -71,18 +70,26 @@ export default {
   data() {
     return {
       dialog: false,
-
+      searchshow:"用户",
       input: '',
       selectVal: '',
       defaultinfolist: [],
       orgListnew: [],
+      newtype:"",
       //全部的数据列表
 
 
     }
   },
+  created() {
+    this.newtype=window.sessionStorage.getItem("type")
+    if(this.newtype==="管理员"){
+      this.searchshow="管理员"
+    }
+  },
   mounted() {
     console.log(this.infolist)
+
   },
 
 
