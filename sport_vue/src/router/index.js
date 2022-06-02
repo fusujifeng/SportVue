@@ -25,7 +25,8 @@ import journal from "@/views/More/Journal";
 import baiduMap from "@/views/More/baiduMap";
 import AllDataInput from "@/views/AllData/AllDataInput";
 //excel功能
-import TablePage from "@/views/TablePage";
+import TablePage from "@/views/More/TablePage";
+import ImportExcel from "@/views/More/ImportExcel";
 
 Vue.use(VueRouter)
 
@@ -44,7 +45,7 @@ const router = new VueRouter({
         //管理员用户数据管理
         { path: '/usercontrol', component: AdminUserSearch },
         { path: '/adminuserlist', component: AdminUserList },
-        { path: '/tablepage', component: TablePage },
+
 
 
         //整体数据测绘
@@ -67,7 +68,10 @@ const router = new VueRouter({
 
         //更多信息
         { path: '/journal', component: journal },
-        { path: '/map', component: baiduMap }
+        { path: '/map', component: baiduMap },
+        { path: '/tablepage', component: TablePage },
+        { path: '/importExcel', component: ImportExcel },
+
       ]
     }
   ]

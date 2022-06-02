@@ -100,8 +100,13 @@ router.post("/login", (req, res) => {
                                             children: [
                                                 {
                                                     id: "4-1",
-                                                    name: "excel表单",
+                                                    name: "导出excel",
                                                     path: "/tablepage",
+                                                },
+                                                {
+                                                    id: "4-2",
+                                                    name: "导入excel",
+                                                    path: "/importexcel",
                                                 },
 
                                             ],
