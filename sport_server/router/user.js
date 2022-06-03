@@ -108,6 +108,11 @@ router.post("/login", (req, res) => {
                                                     name: "导入excel",
                                                     path: "/importexcel",
                                                 },
+                                                {
+                                                    id: "4-3",
+                                                    name: "导出诊断图片",
+                                                    path: "/upimage",
+                                                },
 
                                             ],
                                         },

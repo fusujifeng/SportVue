@@ -6,7 +6,7 @@ import './plugins/wyz-echarts.js'
 import '../public/assets/css/main.css'
 import './plugins/eventbus'
 import axios from 'axios'
-
+import store from "@/store/store";
 
 Vue.config.productionTip = false
 
@@ -32,6 +32,8 @@ new Vue({
     Vue.prototype.$bus=this
   },
   router,
+  store,
+
   render: h => h(App)
 }).$mount('#app')
 

@@ -27,6 +27,9 @@ import AllDataInput from "@/views/AllData/AllDataInput";
 //excel功能
 import TablePage from "@/views/More/TablePage";
 import ImportExcel from "@/views/More/ImportExcel";
+//上传图片功能
+import UpImage from "@/views/More/UpImage";
+import upImage from "@/views/More/UpImage";
 
 Vue.use(VueRouter)
 
@@ -71,6 +74,7 @@ const router = new VueRouter({
         { path: '/map', component: baiduMap },
         { path: '/tablepage', component: TablePage },
         { path: '/importExcel', component: ImportExcel },
+        {path:'/upimage',component:upImage}
 
       ]
     }
