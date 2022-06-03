@@ -7,8 +7,11 @@ import '../public/assets/css/main.css'
 import './plugins/eventbus'
 import axios from 'axios'
 import store from "@/store/store";
+import io from "socket.io-client";
 
 Vue.config.productionTip = false
+
+Vue.prototype.socket=io('http://127.0.0.1:8082')
 
 // 配置请求头
 axios.interceptors.request.use(config => {

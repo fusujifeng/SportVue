@@ -21,6 +21,7 @@
 </template>
 
 <script>
+
 export default {
   name: "Wechat",
   data(){
@@ -31,7 +32,12 @@ export default {
     },
   methods:{
     sendMessage(){
-      this.arr.push(this.cont)
+      if(this.cont.length>0) {
+        this.arr.push(this.cont)
+        //发送信息
+        let emitmessage=this.cont
+        this.socket.emit('message',emitmessage)
+      }
     }
   }
 }

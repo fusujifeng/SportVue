@@ -14,12 +14,21 @@ const app = express();
 
 //定义socket.io服务器
 const server = app.listen(8082);
-const io = require('socket.io').listen(server);
+const io = require('socket.io')(server);
 
 
-io.on("connection", (socket) => {
+io.on("connection", function(socket)  {
     // send a message to the client
     console.log('socket链接成功');
+
+    //  接收信息
+   socket.on('message',data =>{
+        console.log(data)
+    })
+    socket.on("disconnect", function() {
+        console.log("a user go out");
+    });
+
 })
 
 
