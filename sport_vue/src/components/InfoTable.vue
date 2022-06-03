@@ -42,8 +42,16 @@
           <template slot-scope="scope">
             <el-tag v-for="(item,i)  in scope.row.water" :key="i" type="success" size="mini">{{ item + 'ml' }}</el-tag>
           </template>
-
         </el-table-column>
+
+        <el-table-column label="地理位置">
+          <template slot-scope="scope">
+            <span style="width: 200px">{{ scope.row.location }}</span>
+          </template>
+        </el-table-column>
+
+
+
         <el-table-column label="操作" width="180px">
           <template slot-scope="scope">
             <el-button type="primary" size="mini" @click="showchart(scope.row._id)">查看</el-button>
@@ -53,12 +61,14 @@
       </el-table>
       <AllEcharts v-if="dialog" :allData="allData" @return="dialog = false"></AllEcharts>
     </el-card>
+    <div>地理位置：{{address}}</div>
   </div>
 </template>
 
 <script>
 import AllEcharts from './AllEcharts.vue'
 import htmlToExcel from "@/utils/htmlToExcel";
+
 
 export default {
   components: {
@@ -77,9 +87,15 @@ export default {
       defaultinfolist: [],
       orgListnew: [],
       newtype:"",
+
       //全部的数据列表
 
 
+    }
+  },
+  computed:{
+    address(){
+      return this.$store.getters.address
     }
   },
   created() {
@@ -154,5 +170,17 @@ export default {
 <style scoped>
 .el-tag {
   margin: 0 2px;
+}
+.message {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.message .el-card{
+  width: 800px;
+  height: 600px;
+  border-radius: 15px;
 }
 </style>

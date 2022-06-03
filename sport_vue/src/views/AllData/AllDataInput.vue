@@ -107,6 +107,7 @@
     >
   </el-card>
   <Show :allData = "allData" v-if="dialogVisible" @return="returns"></Show>
+  <div>{{this.allInfo.location}}</div>
   </div>
 </template>
 <script>
@@ -123,23 +124,33 @@ export default {
         bloodSuger: [],
         bloodPressure: [],
         water: [],
-        username:""
+        username:"",
+        location:""
       },
       id: window.sessionStorage.getItem('id'),
       dialogVisible: false,
       allData: {}
     }
   },
+
+
+
+  // mounted() {
+  //   this.location=this.address()
+  // },
   methods: {
     // 立即提交按钮
     async addConfirm () {
       var newname=window.sessionStorage.getItem("username")
+      var location=this.$store.getters.address
       this.$set(this.allInfo,"username",newname)
+      this.$set(this.allInfo,"location",location)
       const { data: res } = await this.$http.post(
-        '/server/chart/addchartData/' + this.id, this.allInfo
+        '/server/chart/addchartData/' + this.id, this.allInfo,
       )
       if (res.status !== 200) return this.$message.error('提交数据失败')
       this.allData = res.data
+      console.log("发出去的",this.allInfo)
       console.log(res)
       this.dialogVisible = true
     },

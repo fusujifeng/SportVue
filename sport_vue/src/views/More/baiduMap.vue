@@ -3,12 +3,20 @@
 <template>
   <div>
   <div id="mapDiv">
-    高德地图
-    <h3>{{address}}</h3>
 
-    //地图容器
+
+    <div class="message2">
+      <el-card>
+        <h3 >当前您的位置：{{address}}</h3>
+      </el-card>
+    </div>
+<!--    //地图容器-->
+    <div class="message">
+      <el-card>
     <div id="container">
 
+    </div>
+      </el-card>
     </div>
   </div>
   </div>
@@ -135,5 +143,29 @@ export default {
   margin: 0px;
   width: 100%;
   height: 800px;
+}
+.message {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.message .el-card{
+  width: 800px;
+  height: 600px;
+  border-radius: 15px;
+}
+.message2 {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+ .message2 .el-card{
+  width: 800px;
+  height: 100px;
+  border-radius: 15px;
 }
 </style>

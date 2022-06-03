@@ -1,16 +1,15 @@
 <template>
 <div>
-  <div>msg:{{msg}}</div>
+  <div class="message2">
+    <el-card>
+      <h3 >系统日志</h3>
+    </el-card>
+  </div>
+
   <div class="message">
-<!--     <el-card>-->
-      <el-descriptions title="修改记录" border column="1">
-<!--        <el-descriptions-item label="姓名">{{logMessage.id}}</el-descriptions-item>-->
-<!--        <el-descriptions-item label="日志">{{logMessage.log}}</el-descriptions-item>-->
-<!--        <el-descriptions-item label="删除时间"><el-tag>{{logMessage.date}}</el-tag></el-descriptions-item>-->
-
-      </el-descriptions>
-<!--    </el-card>-->
-
+    <el-card>
+  <div>msg:{{msg}}</div>
+  <div class>
     <el-table :data="userlist">
       <el-table-column label="姓名" prop="tem">
 
@@ -26,6 +25,8 @@
     <div>
       newlog:{{newlog}}
     </div>
+  </div>
+    </el-card>
   </div>
 </div>
 </template>
@@ -124,5 +125,33 @@ export default {
   border-radius: 50%;
   box-sizing: border-box;
   background: linen;
+}
+
+.message {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.message .el-card{
+  width: 800px;
+  height: 600px;
+  border-radius: 15px;
+}
+.message2 {
+  width: 800px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.message2 .el-card{
+  width: 800px;
+  height: 100px;
+  border-radius: 15px;
+  text-align: center;
+  position: absolute;
 }
 </style>

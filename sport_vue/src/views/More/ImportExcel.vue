@@ -1,5 +1,13 @@
 <template>
   <div>
+    <div class="message2">
+      <el-card>
+    <h3 >请选择excel表格上传</h3>
+      </el-card>
+    </div>
+
+    <div class="message">
+    <el-card>
     <div class="flex-display">
       <div class="left-box">表格上传(ElementUI):</div>
       <el-upload
@@ -9,7 +17,7 @@
         class="el-upload"
       >
         <el-button size="small" type="primary" class="el-btn"
-        >点击上传</el-button
+        >上传excel</el-button
         >
         <div slot="tip" class="el-upload-tip">
           只能上传xlsx文件，且不超过5MB
@@ -27,8 +35,10 @@
       </el-table-column>
     </el-table>
     <div class="flex-display">
-      <div class="left-box">文件上传(input)：</div>
+      <div class="left-box">文件上传(input)     ：</div>
       <input type="file" v-on:change="onChange" class="file-ipt" />
+    </div>
+      </el-card>
     </div>
   </div>
 </template>
@@ -141,6 +151,7 @@ export default {
   width: 100%;
   display: flex;
   justify-content: flex-start;
+
   .left-box {
     margin: 20px 30px;
     height: 36px;
@@ -167,6 +178,31 @@ export default {
 }
 input #file-upload-button {
   background-color: #409eff;
+}
+
+.message {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.message .el-card{
+  width: 800px;
+  height: 600px;
+  border-radius: 15px;
+}
+.message2 {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.message2 .el-card{
+  width: 800px;
+  height: 100px;
+  border-radius: 15px;
 }
 </style>
 

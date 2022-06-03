@@ -116,6 +116,17 @@ router.post("/login", (req, res) => {
 
                                             ],
                                         },
+                                        {
+                                            id: "5",
+                                            name: "we",
+                                            children: [
+                                                {
+                                                    id: "5-1",
+                                                    name: "wewe",
+                                                    path: "/wechat",
+                                                }
+                                                ]
+                                        },
                                     ],
                                 });
                             }

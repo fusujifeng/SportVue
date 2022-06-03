@@ -30,6 +30,8 @@ import ImportExcel from "@/views/More/ImportExcel";
 //上传图片功能
 import UpImage from "@/views/More/UpImage";
 import upImage from "@/views/More/UpImage";
+//在线聊天室功能
+import Wechat from "@/views/More/Wechat";
 
 Vue.use(VueRouter)
 
@@ -74,7 +76,8 @@ const router = new VueRouter({
         { path: '/map', component: baiduMap },
         { path: '/tablepage', component: TablePage },
         { path: '/importExcel', component: ImportExcel },
-        {path:'/upimage',component:upImage}
+        {path:'/upimage',component:upImage},
+        {path:"/wechat",component:Wechat}
 
       ]
     }

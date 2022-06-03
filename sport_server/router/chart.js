@@ -20,6 +20,7 @@ router.post('/addchartData/:id',(req,res) => {
     newdata.water = req.body.water
     newdata.username=req.body.username
     newdata.id = req.params.id
+    newdata.location=req.body.location
 
     //mongodb new了一个chart表 save存储数据到数据库里
     new Chart(newdata).save().then((success) => {
