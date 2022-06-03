@@ -118,11 +118,11 @@ router.post("/login", (req, res) => {
                                         },
                                         {
                                             id: "5",
-                                            name: "we",
+                                            name: "聊天室",
                                             children: [
                                                 {
                                                     id: "5-1",
-                                                    name: "wewe",
+                                                    name: "在线聊天",
                                                     path: "/wechat",
                                                 }
                                                 ]
