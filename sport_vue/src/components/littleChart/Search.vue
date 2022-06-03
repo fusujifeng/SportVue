@@ -6,11 +6,12 @@
       v-if="shows"
        stripe
       >
-      <el-table-column
-        prop="date"
-        label="分析日期"
-      >
-      </el-table-column>
+         <el-table-column label="日期">
+           <template slot-scope="scope">
+             <span style="margin-left: 10px">{{ scope.row.date.substring(0, 10) }}</span>
+           </template>
+         </el-table-column>
+
       <el-table-column
         :label="type.title"
       >

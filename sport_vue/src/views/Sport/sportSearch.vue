@@ -3,7 +3,11 @@
 
     <el-card v-if="!dialog">
       <el-table :data="tableData" style="width: 100%">
-        <el-table-column prop="date" label="日期" width="200px"> </el-table-column>
+        <el-table-column label="日期">
+          <template slot-scope="scope">
+            <span style="margin-left: 10px">{{ scope.row.date.substring(0, 10) }}</span>
+          </template>
+        </el-table-column>
         <el-table-column prop="height" label="身高"> </el-table-column>
         <el-table-column prop="weight" label="体重"> </el-table-column>
         <el-table-column prop="sex" label="性别"> </el-table-column>

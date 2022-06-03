@@ -42,6 +42,7 @@
           <template slot-scope="scope">
             <el-tag v-for="(item,i)  in scope.row.water" :key="i" type="success" size="mini">{{ item + 'ml' }}</el-tag>
           </template>
+
         </el-table-column>
         <el-table-column label="操作" width="180px">
           <template slot-scope="scope">
