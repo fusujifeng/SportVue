@@ -2,7 +2,7 @@
   <div>
     <div class="message">
       <el-card>
-        <h3>请联系我</h3>
+        <h3>在线问诊</h3>
         <div class="content">
           <div v-for="e in arr">{{ e }}</div>
           <div class="main">
@@ -21,7 +21,7 @@
     </div>
     <div class="message">
       <el-card>
-        <h3>历史记录</h3>
+        <h3>历史建议</h3>
         {{ showdata }}
       </el-card>
     </div>
