@@ -7,7 +7,7 @@
           <div v-for="e in arr">{{ e }}</div>
           <div class="main">
             <div class="foot">
-              <el-input class="cont" v-model="cont" placeholder="请输入内容"></el-input>
+              <el-input class="cont" v-model="cont" placeholder="请输入内容" ></el-input>
               <el-button type="success" @click="sendMessage">发送</el-button>
               <el-button type="primary" @click="saveChatRecord">记笔记</el-button>
               <el-button type="primary" @click="lookChatRecord">查看笔记</el-button>
@@ -159,11 +159,11 @@ export default {
 
 .foot {
   position: fixed;
-  width: 100%;
+  width:800px;
   bottom: 0;
 
   .cont {
-    width: 100%;
+    width:370px;
     height: 80px;
     background-color: #eee;
   }
