@@ -32,7 +32,9 @@ export default {
       }
     },
   created() {
-    this.username=window.sessionStorage.getItem("usrname")
+
+    this.username=window.sessionStorage.getItem("username")
+    console.log("username is",username)
   },
   mounted() {
     this.getMessage()
@@ -50,7 +52,8 @@ export default {
     //接收信息
     getMessage(){
       this.socket.on('broadcastmessage',data=>{
-
+        this.arr.push(this.username+'说:');
+        console.log(this.username)
         this.arr.push(data);
       })
     }
