@@ -118,11 +118,11 @@ router.post("/login", (req, res) => {
                                         },
                                         {
                                             id: "5",
-                                            name: "聊天室",
+                                            name: "专业分析",
                                             children: [
                                                 {
                                                     id: "5-1",
-                                                    name: "在线聊天",
+                                                    name: "求助医生",
                                                     path: "/wechat",
                                                 }
                                                 ]
@@ -271,7 +271,18 @@ router.post("/login", (req, res) => {
                                                 },
 
                                             ]
-                                        }
+                                        },
+                                        {
+                                            id: "6",
+                                            name: "专业分析",
+                                            children: [
+                                                {
+                                                    id: "6-1",
+                                                    name: "求助医生",
+                                                    path: "/wechat",
+                                                }
+                                            ]
+                                        },
                                     ],
                                 });
                             }
