@@ -24,6 +24,9 @@ io.on("connection", function(socket)  {
     //  接收信息
    socket.on('message',data =>{
         console.log(data)
+
+       //广播消息
+       socket.broadcast.emit('broadcastmessage',data);
     })
     socket.on("disconnect", function() {
         console.log("a user go out");

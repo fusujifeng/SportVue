@@ -27,10 +27,18 @@ export default {
   data(){
       return{
         cont:'',
-        arr:['ddd','segg','qerrr'],
+        arr:['开始聊天吧~'],
+        username:''
       }
     },
+  created() {
+    this.username=window.sessionStorage.getItem("usrname")
+  },
+  mounted() {
+    this.getMessage()
+  },
   methods:{
+    // 发送信息
     sendMessage(){
       if(this.cont.length>0) {
         this.arr.push(this.cont)
@@ -38,6 +46,13 @@ export default {
         let emitmessage=this.cont
         this.socket.emit('message',emitmessage)
       }
+    },
+    //接收信息
+    getMessage(){
+      this.socket.on('broadcastmessage',data=>{
+
+        this.arr.push(data);
+      })
     }
   }
 }
