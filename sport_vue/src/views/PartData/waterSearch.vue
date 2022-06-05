@@ -36,6 +36,7 @@ export default {
     async getwater () {
       const { data: res } = await this.$http.get('/server/mydata/mywater/' + this.id)
       if (res.status !== 200) return this.$message.error('获取列表失败')
+      //数组map方法的作用 : 映射数组按照某种映射关系,把数组的每一个元素给修改了
       this.tableData = res.data.map(item => {
         return { _id: item._id, id: item.id, newdata: item.water, date: item.date }
       })

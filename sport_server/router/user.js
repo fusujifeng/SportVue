@@ -23,6 +23,12 @@ router.post("/login", (req, res) => {
                 });
 
             }
+            // 将用户的密码进行加密
+            // 加密使用的是bcrypt中间件的genSalt加密函数。用hash加密规则对密码进行加密，
+            // 并将加密后的密码以密文形式保存在数据库中。
+ // bcrypt是加密中间件。bcrypt中间件的compare方法通过比较数据库中保存的密码和用户输入框中输入的密码的异同
+   // 来返回一个布尔值isMath布尔值isMath为真的时候根据自定义的加密规则rule 配置token并返回用户前端信息
+ //        （rule配置的是token加密规则）。
             if (user.type === req.body.type && user.type === "管理员") {
                 return bcrypt.compare(password, user.password).then((isMath) => {
                     if (isMath) {
@@ -31,6 +37,7 @@ router.post("/login", (req, res) => {
                             name: user.username,
                             type: user.type,
                         };
+                        // jwt:json web token
                         jwt.sign(
                             rule,
                             keys.secretOrKey,
@@ -297,7 +304,7 @@ router.post("/login", (req, res) => {
             } else {
                 return res.json({
                     status: 400,
-                    msg: "非用户账号",
+                    msg: "普通用户账号(非管理员)",
                 });
             }
         })
@@ -379,6 +386,8 @@ router.post('/mymessage-edit/', (req, res) => {
 })
 
 //管理员--用户管理
+// Passport 是 Node 的认证中间件，它的存在只有一个单一的目的，就是认证请求。
+//通过调用 passport.authenticate()方法及配置相应的策略，就可实现认证网络请求。
 //authenticate验证token，有token才能访问
 router.get(
     "/allUser/:id", passport.authenticate("jwt", {session: false,}),

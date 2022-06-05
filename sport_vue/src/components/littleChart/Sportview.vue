@@ -131,6 +131,7 @@ export default {
     } else {
       msg.swimRhythmmsg = '您的游泳心率正常，慢跑有助于增强免疫力，减脂。请保持哦！'
     }
+    //计算卡路里
     msg.kal =
       parseFloat(this.sportDate.runDate) * 215 +
       parseFloat(this.sportDate.runDate) * 650 +
@@ -138,6 +139,7 @@ export default {
     this.msg = msg
   },
   mounted () {
+    //给所有的环设置样式
     const size = document.querySelectorAll('.el-progress-circle')
     size.forEach(item => {
       item.style.height = '50px'

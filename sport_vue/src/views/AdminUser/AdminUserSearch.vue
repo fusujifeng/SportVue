@@ -5,6 +5,9 @@
   <el-breadcrumb-item><a href="/">用户信息查询</a></el-breadcrumb-item>
     </el-breadcrumb>
     <el-table :data="allUser" stripe style="width: 100%">
+
+<!--      当el-table元素中注入data对象数组后，在el-table-column中用prop属性来对应对象中的键名即可填入数据，-->
+
       <el-table-column prop="name" label="姓名"> </el-table-column>
         <el-table-column prop="age" label="年龄"> </el-table-column>
           <el-table-column prop="sex" label="性别"> </el-table-column>

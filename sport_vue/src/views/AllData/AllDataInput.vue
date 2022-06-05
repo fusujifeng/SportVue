@@ -3,9 +3,7 @@
   <el-card  v-show="!dialogVisible">
     <el-row style="margin-bottom: 40px">
       <el-breadcrumb separator="/">
-        <el-breadcrumb-item :to="{ path: '/home' }"
-          >数据分析与测绘</el-breadcrumb-item
-        >
+        <el-breadcrumb-item :to="{ path: '/home' }">数据分析与测绘</el-breadcrumb-item>
         <el-breadcrumb-item><a href="/sport_vue/public">数据录入与测绘</a></el-breadcrumb-item>
       </el-breadcrumb>
     </el-row>
@@ -205,8 +203,8 @@
       class="submit"
       @click="active == 4 ? active == 4 : active++"
       v-show="active !== 4"
-      >下一步</el-button
-    >
+      >下一步</el-button>
+
     <el-button
       type="success"
       class="submit"

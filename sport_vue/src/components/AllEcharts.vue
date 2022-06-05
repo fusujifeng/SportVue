@@ -34,7 +34,7 @@
           <el-descriptions-item label="饮水分析结果">
             {{ msg.watermsg }}
           </el-descriptions-item>
-          
+
         </el-descriptions>
       </el-card>
       <el-button type="primary" @click="returns">返回</el-button>
@@ -171,6 +171,7 @@ export default {
             snap: true
           }
         },
+        //Echarts的visualMap组件:数据映射
         visualMap: {
           show: false,
           dimension: 0,
@@ -207,6 +208,8 @@ export default {
             smooth: true,
             // prettier-ignore
             data: this.allData.water,
+
+            // 通过 areaStyle 设置折线图的填充区域样式，
             markArea: {
               itemStyle: {
                 color: 'rgba(255, 173, 177, 0.4)'
