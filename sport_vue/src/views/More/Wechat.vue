@@ -103,14 +103,7 @@ export default {
       console.log("ddffff")
       const { data: res } = await this.$http.get('/server/more/showchatdata/'+this.username)
       if (res.status !== 200) return this.$message.error('获取列表失败')
-      // var count=null;
-      // forEach(var i:res.myINfo.data){
-      //   count=count+i;
-      // }
-      // this.showdata = count;
-      // res.myINfo.forEach(element => )
-      // this.showdata = res.myINfo[this.count+1].data;
-      // console.log(res.myINfo[0].data
+
 
         for (var i=0;i<res.myINfo.length;i++)
       {

@@ -15,7 +15,7 @@
           <el-form-item label="上午八点体温">
             <el-input v-model="temperature[0]">;</el-input>
             <span
-              v-show="temperature[0] > 37 && temperature[0] < 42"
+              v-show="temperature[0] > 37.5 && temperature[0] < 42"
               style="color: #f40; padding-left: 10px"
               >体温过高，若非剧烈运动，请及时就医！</span
             >
@@ -158,8 +158,8 @@
   </el-card>
   <div class="tempureKnowledge">
     <h1>Tips:</h1>
-    不超过<span class="big">37.3℃</span>，属于正常体温。<br>
-    体温<span class="big">37.3-38℃</span>之间时属于低热，<br>
+    36.5到<span class="big">37.5℃</span>，属于正常体温。<br>
+    体温<span class="big">37.5-38℃</span>之间时属于低热，<br>
     <span class="big">38-39℃</span>之间属于中度发热，<br>
     <span class="big">39-41℃</span>之间属于高热，<br>
     体温<span class="big">超过41℃</span>属于超高热。<br>

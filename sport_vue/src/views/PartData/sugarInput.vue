@@ -74,7 +74,7 @@
   </el-card>
   <div class="sugerknowledge">
     <h1>Tips:</h1>
-    <h3>
+    <h3 style="float: left;">
       正常血糖值的范围分为两大类，一般指的是空腹及餐后血糖，<br>
       空腹血糖正常值为<span class="big">3.9～6.1mmol/L</span>之间，<br>
       餐后1小时血糖正常值为<span class="big">6.7-9.4mmol/L</span>之间，<br>
@@ -82,7 +82,7 @@
     </h3>
     <div class="picture">
 
-      <img width="475"  src="../../../public/assets/img/sugar.jpg">
+      <img width="400px" height="400px"  src="../../../public/assets/img/sugar.jpg">
     </div>
   </div>
   </div>
